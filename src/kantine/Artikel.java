@@ -10,5 +10,6 @@ package kantine;
  * @author R
  */
 public class Artikel {
-    
+    private String naam;
+    private int prijs;
 }
