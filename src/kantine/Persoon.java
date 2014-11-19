@@ -27,7 +27,7 @@ public class Persoon {
     * Setter voor geboortedatum
     * Met controle op juistheid van dag maand en jaar
     */
-    public String setGeboortedatum(int geboortedag, int geboortemaand, int geboortejaar) {
+    public String setGeboortedatum() {
             boolean controle=true;
         if (geboortejaar<1900 && geboortejaar>2100) {
             controle=false;
