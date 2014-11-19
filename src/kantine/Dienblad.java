@@ -13,7 +13,7 @@ public class Dienblad {
    * @param artikel
    */
   public void voegToe(Artikel artikel) {
-    //Lul verhaal!!
+    //Lul verhaal!!!!
   }
 
   /**
