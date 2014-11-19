@@ -8,7 +8,6 @@ public class Kantine {
   public Kantine() {
     kassarij=new KassaRij();
     kassa=new Kassa(kassarij);
-    test=test;
   }
 
   /**
