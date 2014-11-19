@@ -13,7 +13,7 @@ public class Dienblad {
    * @param artikel
    */
   public void voegToe(Artikel artikel) {
-    // method body omitted
+    //Lul verhaal
   }
 
   /**
