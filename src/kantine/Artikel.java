@@ -12,4 +12,12 @@ package kantine;
 public class Artikel {
     private String naam;
     private int prijs;
+    
+    public Artikel(String naamArtikel, int prijsArtikel) 
+    {
+    	naam = naamArtikel;
+    	prijs = prijsArtikel;
+    }
+    
+    
 }
