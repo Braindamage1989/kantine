@@ -17,10 +17,10 @@ public class Persoon {
         bsn=bsnPersoon;
         voornaam=voornaamPersoon;
         achternaam=achternaamPersoon;
-        geboortejaar=geboortejaarPersoon;
+        setGeboortedatum(geboortejaarPersoon, geboortemaandPersoon, geboortedagPersoon);
         geboortemaand=geboortemaandPersoon;
         geboortedag=geboortedagPersoon;
-        geslacht=geslachtPersoon;
+        setGeslacht(geslachtPersoon);
     }
    
     /**
@@ -81,7 +81,6 @@ public class Persoon {
             charGeslacht='o';
         }
         geslacht=charGeslacht;
-        return geslacht;
     }
     
     /**
