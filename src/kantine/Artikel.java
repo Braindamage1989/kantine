@@ -19,5 +19,24 @@ public class Artikel {
     	prijs = prijsArtikel;
     }
     
+    public void setNaam(String naamArtikel)
+    {
+    	naam = naamArtikel;
+    }
+    
+    public void setPrijs(int prijsArtikel)
+    {
+    	prijs = prijsArtikel;
+    }
+    
+    public String getNaam()
+    {
+    	return naam;
+    }
+    
+    public int getPrijs()
+    {
+    	return prijs;
+    }
     
 }
