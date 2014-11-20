@@ -39,4 +39,6 @@ public class Artikel {
     	return prijs;
     }
     
+    public void
+    
 }
