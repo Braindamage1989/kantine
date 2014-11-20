@@ -32,7 +32,7 @@ public class Persoon {
         if (geboortejaar<1900 && geboortejaar>2100) {
             controle=false;
         }
-        if (geboortemaand<=0 && geboortemaand>12) {
+        if (geboortemaand<0 && geboortemaand>12) {
             controle=false;
         }
         if (geboortedag<1){
@@ -68,6 +68,10 @@ public class Persoon {
             geboortedag=0;
             geboortemaand=0;
             geboortejaar=0;
+        }else if (controle==true) {
+            geboortedag=geboortedag;
+            geboortemaand=geboortemaand;
+            geboortejaar=geboortejaar;
         }
     }
     
