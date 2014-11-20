@@ -18,8 +18,6 @@ public class Persoon {
         voornaam=voornaamPersoon;
         achternaam=achternaamPersoon;
         setGeboortedatum(geboortejaarPersoon, geboortemaandPersoon, geboortedagPersoon);
-        geboortemaand=geboortemaandPersoon;
-        geboortedag=geboortedagPersoon;
         setGeslacht(geslachtPersoon);
     }
    
@@ -75,14 +73,13 @@ public class Persoon {
          }
      }
     
-    public void setGeslacht(char charGeslacht) {
-        if (charGeslacht=='m' || charGeslacht=='v'){
-            // doe niks????
-        }else {
-            charGeslacht='o';
-        }
-        geslacht=charGeslacht;
-    }
+     public void setGeslacht(char charGeslacht) {
+         if (charGeslacht=='m' || charGeslacht=='v'){
+            geslacht=charGeslacht;
+         }else {
+            geslacht='o';
+         }
+     }
     
     /**
     * Getter voor bsn
