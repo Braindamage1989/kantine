@@ -39,6 +39,9 @@ public class Artikel {
     	return prijs;
     }
     
-    public void
+    public void drukAf()
+    {
+    	System.out.println(naam + " Prijs: " + prijs);
+    }
     
 }
