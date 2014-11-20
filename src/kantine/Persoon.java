@@ -27,18 +27,18 @@ public class Persoon {
     * Setter voor geboortedatum
     * Met controle op juistheid van dag maand en jaar
     */
-    public String setGeboortedatum() {
+    public int setGeboortedatum(int tempGeboortejaar, int tempGeboortemaand, int tempGeboortedag) {
             boolean controle=true;
-        if (geboortejaar<1900 && geboortejaar>2100) {
+        if (tempGeboortejaar<1900 && tempGeboortejaar>2100) {
             controle=false;
         }
-        if (geboortemaand<0 && geboortemaand>12) {
+        if (tempGeboortemaand<0 && tempGeboortemaand>12) {
             controle=false;
         }
-        if (geboortedag<1){
+        if (tempGeboortedag<1){
             controle=false;
         }
-        switch(geboortemaand){
+        switch(tempGeboortemaand){
             case 1:
             case 3:
             case 5:
@@ -46,12 +46,12 @@ public class Persoon {
             case 8:
             case 10:
             case 12:
-                if (geboortedag>31) {
+                if (tempGeboortedag>31) {
                     controle=false;
                 }
                 break;
             case 2:
-                if (geboortedag>28) {
+                if (tempGeboortedag>28) {
                     controle=false;
                 }
                 break;
@@ -59,28 +59,29 @@ public class Persoon {
             case 6:
             case 9:
             case 11:
-                if (geboortedag>30) {
+                if (tempGeboortedag>30) {
                     controle=false;
                 }
                 break;
         }
         if (controle==false) {
-            geboortedag=0;
-            geboortemaand=0;
-            geboortejaar=0;
-        }else if (controle==true) {
-            geboortedag=geboortedag;
-            geboortemaand=geboortemaand;
-            geboortejaar=geboortejaar;
+            tempGeboortedag=0;
+            tempGeboortemaand=0;
+            tempGeboortejaar=0;
         }
+            geboortedag=tempGeboortedag;
+            geboortemaand=tempGeboortemaand;
+            geboortejaar=tempGeboortejaar;
     }
     
-    public String setGeslacht() {
-        if (geslacht=='m' || geslacht=='v'){
+    public char setGeslacht(char charGeslacht) {
+        if (charGeslacht=='m' || charGeslacht=='v'){
             // doe niks????
         }else {
-            geslacht='o';
+            charGeslacht='o';
         }
+        geslacht=charGeslacht;
+        return geslacht;
     }
     
     /**
