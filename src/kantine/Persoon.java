@@ -27,7 +27,7 @@ public class Persoon {
     * Setter voor geboortedatum
     * Met controle op juistheid van dag maand en jaar
     */
-    public int setGeboortedatum(int tempGeboortejaar, int tempGeboortemaand, int tempGeboortedag) {
+    public void setGeboortedatum(int tempGeboortejaar, int tempGeboortemaand, int tempGeboortedag) {
             boolean controle=true;
         if (tempGeboortejaar<1900 && tempGeboortejaar>2100) {
             controle=false;
@@ -74,7 +74,7 @@ public class Persoon {
             geboortejaar=tempGeboortejaar;
     }
     
-    public char setGeslacht(char charGeslacht) {
+    public void setGeslacht(char charGeslacht) {
         if (charGeslacht=='m' || charGeslacht=='v'){
             // doe niks????
         }else {
