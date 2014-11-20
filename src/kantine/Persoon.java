@@ -20,8 +20,32 @@ public class Persoon {
         setGeboortedatum(geboortejaarPersoon, geboortemaandPersoon, geboortedagPersoon);
         setGeslacht(geslachtPersoon);
     }
-   
-    /**
+     
+     /**
+     * Setter voor bsn
+     * 
+     */
+     public void setBsn(int tempBsn){
+         bsn=tempBsn;
+     }
+     
+     /**
+     * Setter voor voornaam
+     * 
+     */
+     public void setVoornaam(String tempVoornaam){
+         voornaam=tempVoornaam;
+     }
+     
+     /**
+     * Setter voor achternaam
+     * 
+     */
+     public void setAchternaam(String tempAchternaam){
+         achternaam=tempAchternaam;
+     }
+     
+     /**
      * Setter voor geboortedatum
      * Met controle op juistheid van dag maand en jaar
      */
