@@ -1,6 +1,5 @@
 public class Persoon {
   
-    
     private int bsn;
     private String voornaam;
     private String achternaam;
@@ -21,6 +20,9 @@ public class Persoon {
         setGeslacht(geslachtPersoon);
     }
      
+     /**
+     * Druk alle gegevens af.
+     */
      public void drukAf() {
          System.out.println("BSN: " + bsn);
          System.out.println("Voornaam: " + voornaam);
@@ -109,6 +111,9 @@ public class Persoon {
          }
      }
     
+    /**
+    * Set het geslacht, is het geslacht niet geldig dan wordt deze op 'o' gezet
+    */
      public void setGeslacht(char charGeslacht) {
          if (charGeslacht=='m' || charGeslacht=='v'){
             geslacht=charGeslacht;
