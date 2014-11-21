@@ -1,13 +1,15 @@
-public class Persoon {
-        
-    /**
-    * Een klasse die informatie over personen bijhoud.
-    * Dit word een onderdeel van een grotere applicatie.
-    * 
-    * @author Ronald Scholten
-    * @version 21-11-2014
-    */
-  
+package kantine;
+
+/**
+* Een klasse die informatie over personen bijhoud.
+* Dit word een onderdeel van een grotere applicatie.
+* 
+* @author Ronald Scholten
+* @version 21-11-2014
+*/
+
+public class Persoon
+{ 
         private int bsn;
         private String voornaam;
         private String achternaam;
@@ -82,6 +84,11 @@ public class Persoon {
                 }
                 break;
             case 2:
+                /* 
+                * Controleren of een jaar deelbaar door 400 is,
+                * of een jaar deelbaar door 100 en als dit wil vervolgens kijken of een jaar deelbaar is door 4,
+                * om te bepalen of een jaar een schrikkeljaar is.
+                */
                 if ((tempGeboortejaar % 400) == 0 || ((tempGeboortejaar % 100 != 0) && tempGeboortejaar % 4 == 0)){
                     if (tempGeboortedag > 29) {
                        controle = false;
