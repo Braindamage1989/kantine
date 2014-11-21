@@ -6,8 +6,11 @@
 package kantine;
 
 /**
- *
- * @author R
+ * Een klasse die informatie over artikelen bijhoud.
+ * Dit word een onderdeel van een grotere applicatie.
+ * 
+ * @author David Bor
+ * @version 21-11-2014
  */
 public class Artikel {
     private String naam;
