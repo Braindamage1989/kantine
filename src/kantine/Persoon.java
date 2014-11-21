@@ -1,12 +1,20 @@
 public class Persoon {
+        
+    /**
+    * Een klasse die informatie over personen bijhoud.
+    * Dit word een onderdeel van een grotere applicatie.
+    * 
+    * @author Ronald Scholten
+    * @version 21-11-2014
+    */
   
-    private int bsn;
-    private String voornaam;
-    private String achternaam;
-    private int geboortejaar;
-    private int geboortemaand;
-    private int geboortedag;
-    private char geslacht;
+        private int bsn;
+        private String voornaam;
+        private String achternaam;
+        private int geboortejaar;
+        private int geboortemaand;
+        private int geboortedag;
+        private char geslacht;
     
     /**
     * Verzameling van alle gegevens
@@ -166,9 +174,9 @@ public class Persoon {
         if (geslacht == 'm'){
             stringgeslacht="Man";
         }else if(geslacht == 'v'){
-            stringgeslacht="Vrouw";
+            stringgeslacht = "Vrouw";
         }else{
-            stringgeslacht="Onbekend";
+            stringgeslacht = "Onbekend";
         }
         return stringgeslacht;
     }
