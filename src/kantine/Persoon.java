@@ -19,17 +19,6 @@ public class Persoon {
         setGeboortedatum(geboortejaarPersoon, geboortemaandPersoon, geboortedagPersoon);
         setGeslacht(geslachtPersoon);
     }
-     
-     /**
-     * Druk alle gegevens af.
-     */
-     public void drukAf() {
-         System.out.println("BSN: " + bsn);
-         System.out.println("Voornaam: " + voornaam);
-         System.out.println("Achternaam: " + achternaam);
-         System.out.println("Geboortedatum: " + getGeboorteDatum());
-         System.out.println("Geslacht: " + getGeslacht());
-     }
     
      /**
      * Setter voor bsn
@@ -175,6 +164,17 @@ public class Persoon {
         }
         return stringgeslacht;
     }
+    
+    /**
+     * Druk alle gegevens af.
+     */
+     public void drukAf() {
+         System.out.println("BSN: " + bsn);
+         System.out.println("Voornaam: " + voornaam);
+         System.out.println("Achternaam: " + achternaam);
+         System.out.println("Geboortedatum: " + getGeboorteDatum());
+         System.out.println("Geslacht: " + getGeslacht());
+     }
    
   /**
    * Methode om dienblad te koppelen aan een persoon
