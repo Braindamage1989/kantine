@@ -81,8 +81,12 @@ public class Persoon {
                  }
                  break;
              case 2:
-                 if (tempGeboortedag>28) {
-                     controle=false;
+                 if ((tempGeboortejaar % 400) == 0 || ((tempGeboortejaar % 100 != 0) && tempGeboortejaar % 4 == 0)){
+                     if (tempGeboortedag>29) {
+                        controle=false;
+                     }
+                 }else if (tempGeboortedag>28) {
+                        controle=false;
                  }
                  break;
              case 4:
@@ -170,7 +174,7 @@ public class Persoon {
   /**
    * Methode om dienblad te koppelen aan een persoon
    * @param dienblad
-   */  
+   *  
   public void pakDienblad(Dienblad) {
     //method body omitted
   } 
@@ -178,7 +182,7 @@ public class Persoon {
   /**
    * Methode om artikel te pakken en te plaatsen op het dienblad
    * @param artikel
-   */
+   *
   public void pakArtikel(Artikel artikel) {
     //method body omitted
   }
@@ -187,7 +191,7 @@ public class Persoon {
    * Methode om de totaalprijs van de artikelen 
    * op dienblad dat bij de persoon hoort uit te rekenen
    * @return De totaalprijs
-   */
+   *
   public double getTotaalPrijs() {
     //method body omitted
   } 
@@ -196,8 +200,9 @@ public class Persoon {
    * Methode om het aantal artikelen op dienblad dat bij de 
    * persoon hoort te tellen
    * @return Het aantal artikelen
-   */
+   *
   public int getAantalArtikelen() {
     //method body omitted    
   }
+  */
 }
