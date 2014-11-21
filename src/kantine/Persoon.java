@@ -21,6 +21,14 @@ public class Persoon {
         setGeslacht(geslachtPersoon);
     }
      
+     public void drukAf() {
+         System.out.println("BSN: " + bsn);
+         System.out.println("Voornaam: " + voornaam);
+         System.out.println("Achternaam: " + achternaam);
+         System.out.println("Geboortedatum: " + getGeboorteDatum());
+         System.out.println("Geslacht: " + getGeslacht());
+     }
+    
      /**
      * Setter voor bsn
      * 
