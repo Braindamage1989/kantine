@@ -12,7 +12,8 @@ package kantine;
  * @author David Bor
  * @version 21-11-2014
  */
-public class Artikel {
+public class Artikel
+{
     private String naam;
     private int prijs;
     
