@@ -1,0 +1,7 @@
+Primitieve datatypen maken gebruik van directe opslag.
+Als de waarden van deze variabelen worden overschreven, gaat de oude waarde verloren.
+
+Bij objecten werkt dit anders.
+Als er een variabele gevuld wordt met een waarde dan heeft dit invloed op alle instanties van een object.
+In het geval van het voorbeeld verwijst een variabele van object a naar object b, en vice versa.
+Als er bij object b een prijs ingesteld wordt van 5, dan geldt deze ook voor objct a.
