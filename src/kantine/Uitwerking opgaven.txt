@@ -2,7 +2,7 @@ Opgave 1b
 Declaratie voor variabelen is niet meer dan het opgeven van welke soort een variable is, en wat de scope hiervan is. Hieronder volgt een voorbeeld.
 private int id;
 Private geeft aan dat de variabele alleen zichtbaar is voor de classe waarin deze is aangeroepen.
-int geeft het datatype waar, in dit geval een integer.
+int geeft het datatype weer, in dit geval een integer.
 En tot slot is id de naam van de variabele.
 In deze toestand is de variabele zelf nog leeg
 
