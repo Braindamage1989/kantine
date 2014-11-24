@@ -1,0 +1,29 @@
+Opgave 1b
+Declaratie voor variabelen is niet meer dan het opgeven van welke soort een variable is, en wat de scope hiervan is. Hieronder volgt een voorbeeld.
+private int id;
+Private geeft aan dat de variabele alleen zichtbaar is voor de classe waarin deze is aangeroepen.
+int geeft het datatype waar, in dit geval een integer.
+En tot slot is id de naam van de variabele.
+In deze toestand is de variabele zelf nog leeg
+
+Initialiseren of initialisatie is het toekennen van een waarde aan een variabele die gedeclareerd is.
+In het boek wordt dit veelal in de constructor gedaan.
+
+Opgave 2c
+De methode die wij voor bijvoorbeeld geboortedatum hebben gebruikt, wijzigen de variabele die ze aanspreken direct.
+Hierdoor is het mogelijk om in de constructor deze methodes aan te roepen. In deze constructie worden ook nieuwe instanties direct gecontroleerd.
+
+Opgave 4
+Primitieve datatypen maken gebruik van directe opslag.
+Als we kijken naar code fragment in de opdracht zien we het volgende.
+Allereerst worden I en J gedefineerd. I krijgt de waarde 1 en J krijgt de waarde 2.
+Vervolgens krijgt I de waarde van J en J krijgt de waarde drie.
+Omdat primitieve datatypen gebruiken maken van direct opslag, wordt de vorige waarde overschreven.
+Dit verklaart waarom I als 2 wordt afgedrukt en J als 3.
+
+Bij objecten werkt dit anders.
+Als we kijken naar het voorbeeld dan zien we dat a.setPrijs de waarde 1 krijgt en b.setPrijs de waarde 2.
+Vervolgens wordt gezegd dat object A object B is. Daarna wordt b.setPrijs naar de waarde 3 veranderd.
+Toch zien we op het scherm de waarde 3 voor beide objecten.
+Dit komt doordat een variable van een object een verwijzing bevat.
+Door het feit dat object A aan B is toegewezen geld de verwijzing ook voor object A.
