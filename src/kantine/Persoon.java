@@ -22,56 +22,68 @@ public class Persoon
     * Verzameling van alle gegevens
     * Tot nu toch zonder goede check...
     */
-    public Persoon(int bsnPersoon, String voornaamPersoon, String achternaamPersoon, int geboortejaarPersoon, int geboortemaandPersoon, int geboortedagPersoon, char geslachtPersoon)
+    public Persoon(int bsn, String voornaam, String achternaam, int geboortejaar, int geboortemaand, int geboortedag, char geslacht)
     {
-        bsn = bsnPersoon;
-        voornaam = voornaamPersoon;
-        achternaam = achternaamPersoon;
-        setGeboortedatum(geboortejaarPersoon, geboortemaandPersoon, geboortedagPersoon);
-        setGeslacht(geslachtPersoon);
+        this.bsn = bsn;
+        this.voornaam = voornaam;
+        this.achternaam = achternaam;
+        setGeboortedatum(geboortejaar, geboortemaand, geboortedag);
+        setGeslacht(geslacht);
     }
+    
+    /**
+     * Een constructor zonder parameters
+     */
+     public Persoon()
+     {
+         bsn = 0;
+         voornaam = "";
+         achternaam = "";
+         setGeboortedatum(0, 0, 0);
+         geslacht = 'o';
+     }
     
     /**
     * Setter voor bsn
     */
-    public void setBsn(int tempBsn)
+    public void setBsn(int bsn)
     {
-        bsn = tempBsn;
+        this.bsn = bsn;
     }
      
     /**
     * Setter voor voornaam 
     */
-    public void setVoornaam(String tempVoornaam)
+    public void setVoornaam(String voornaam)
     {
-        voornaam = tempVoornaam;
+        this.voornaam = voornaam;
     }
      
     /**
     * Setter voor achternaam 
     */
-    public void setAchternaam(String tempAchternaam)
+    public void setAchternaam(String achternaam)
     {
-        achternaam = tempAchternaam;
+        this.achternaam = achternaam;
     }
      
     /**
     * Setter voor geboortedatum
     * Met controle op juistheid van dag maand en jaar
     */
-    public void setGeboortedatum(int tempGeboortejaar, int tempGeboortemaand, int tempGeboortedag)
+    public void setGeboortedatum(int geboortejaar, int geboortemaand, int geboortedag)
     {
             boolean controle = true;
-        if (tempGeboortejaar < 1900 || tempGeboortejaar > 2100) {
+        if (geboortejaar < 1900 || geboortejaar > 2100) {
             controle = false;
         }
-        if (tempGeboortemaand < 0 || tempGeboortemaand > 12) {
+        if (geboortemaand < 0 || geboortemaand > 12) {
             controle = false;
         }
-        if (tempGeboortedag < 1) {
+        if (geboortedag < 1) {
             controle = false;
         }
-        switch(tempGeboortemaand){
+        switch(geboortemaand){
             case 1:
             case 3:
             case 5:
@@ -79,7 +91,7 @@ public class Persoon
             case 8:
             case 10:
             case 12:
-                if (tempGeboortedag > 31) {
+                if (geboortedag > 31) {
                     controle = false;
                 }
                 break;
@@ -89,11 +101,11 @@ public class Persoon
                 * of een jaar deelbaar door 100 en als dit wil vervolgens kijken of een jaar deelbaar is door 4,
                 * om te bepalen of een jaar een schrikkeljaar is.
                 */
-                if ((tempGeboortejaar % 400) == 0 || ((tempGeboortejaar % 100 != 0) && tempGeboortejaar % 4 == 0)){
-                    if (tempGeboortedag > 29) {
+                if ((geboortejaar % 400) == 0 || ((geboortejaar % 100 != 0) && geboortejaar % 4 == 0)){
+                    if (geboortedag > 29) {
                        controle = false;
                     }
-                }else if (tempGeboortedag > 28) {
+                }else if (geboortedag > 28) {
                         controle = false;
                 }
                 break;
@@ -101,31 +113,31 @@ public class Persoon
             case 6:
             case 9:
             case 11:
-                if (tempGeboortedag > 30) {
+                if (geboortedag > 30) {
                     controle = false;
                 }
                 break;
         }
         if (controle) {
-            geboortedag = tempGeboortedag;
-            geboortemaand = tempGeboortemaand;
-            geboortejaar = tempGeboortejaar;
+            this.geboortedag = geboortedag;
+            this.geboortemaand = geboortemaand;
+            this.geboortejaar = tempGeboortejaar;
         }else {
-            geboortedag = 0;
-            geboortemaand = 0;
-            geboortejaar = 0;
+            this.geboortedag = 0;
+            this.geboortemaand = 0;
+            this.geboortejaar = 0;
         }
     }
     
     /**
     * Set het geslacht, is het geslacht niet geldig dan wordt deze op 'o' gezet
     */
-    public void setGeslacht(char charGeslacht)
+    public void setGeslacht(char geslacht)
     {
-        if (charGeslacht == 'm' || charGeslacht == 'v'){
-            geslacht = charGeslacht;
+        if (geslacht == 'm' || geslacht == 'v'){
+            this.geslacht = geslacht;
         }else {
-            geslacht = 'o';
+            this.geslacht = 'o';
         }
     }
     
