@@ -9,8 +9,8 @@ package kantine;
  * Een klasse die informatie over artikelen bijhoud.
  * Dit word een onderdeel van een grotere applicatie.
  * 
- * @author David Bor
- * @version 21-11-2014
+ * @author David Bor & Ronald Scholten
+ * @version 25-11-2014
  */
 public class Artikel
 {
@@ -21,26 +21,33 @@ public class Artikel
      * De naam en prijs zetten als het object
      * geconstrueerd word.
      */
-    public Artikel(String naamArtikel, int prijsArtikel) 
+    public Artikel(String naam, int prijs) 
     {
-    	naam = naamArtikel;
-    	prijs = prijsArtikel;
+    	this.naam = naam;
+    	this.prijs = prijs;
+    }
+    
+    /**
+    * Lege constructor
+    */
+    public Artikel() 
+    {
     }
     
     /**
      * Zet een naam voor het artikel.
      */
-    public void setNaam(String naamArtikel)
+    public void setNaam(String naam)
     {
-    	naam = naamArtikel;
+    	this.naam = naam;
     }
     
     /**
      * Zet de prijs van het artikel.
      */
-    public void setPrijs(int prijsArtikel)
+    public void setPrijs(int prijs)
     {
-    	prijs = prijsArtikel;
+    	this.prijs = prijs;
     }
     
     /**
