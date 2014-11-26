@@ -15,13 +15,13 @@ package kantine;
 public class Artikel
 {
     private String naam;
-    private int prijs;
+    private double prijs;
     
     /**
      * De naam en prijs zetten als het object
      * geconstrueerd word.
      */
-    public Artikel(String naam, int prijs) 
+    public Artikel(String naam, double prijs) 
     {
     	this.naam = naam;
     	this.prijs = prijs;
@@ -45,7 +45,7 @@ public class Artikel
     /**
      * Zet de prijs van het artikel.
      */
-    public void setPrijs(int prijs)
+    public void setPrijs(double prijs)
     {
     	this.prijs = prijs;
     }
