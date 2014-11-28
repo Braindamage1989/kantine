@@ -1,16 +1,16 @@
 package kantine;
 
 public class Kantine {
-  private Kassa kassa;
-  private KassaRij kassarij;
-  private Persoon persoon;
-  private Dienblad dienblad;
+    private Kassa kassa;
+    private Kassarij kassarij;
+    private Persoon persoon;
+    private Dienblad dienblad;
 
   /**
    * Constructor
    */
   public Kantine() {
-    kassarij = new KassaRij();
+    kassarij = new Kassarij();
     kassa = new Kassa(kassarij);
   }
 
@@ -23,16 +23,27 @@ public class Kantine {
    * voor de kassa.
    */
   public void loopPakSluitAan() {
-      persoon = new Persoon();
-      dienblad = new Dienblad();
+    persoon = new Persoon();
+    dienblad = new Dienblad();
+    
+    Artikel artikel1 = new Artikel("Unox Worst", 2.00);
+    Artikel artikel2 = new Artikel("Goedkoop Broodje", 0.50);
+    
+    persoon.pakDienblad(dienblad);
+    
+    persoon.pakArtikel(artikel1);
+    persoon.pakArtikel(artikel2);
+            
+    kassarij.sluitAchteraan(persoon);
   }
 
   /**
    * Deze methode handelt de rij voor de kassa af.
    */
-  public void verwerkRijVoorKassa() {
-    while() {
-      //omitted   
+  public void verwerkRijVoorKassa() 
+  {
+    while(kassarij.erIsEenRij()) {
+        kassa.rekenAf(kassarij.eerstePersoonInRij());
     }
   }
 
@@ -41,7 +52,7 @@ public class Kantine {
    * @return hoeveelheid geld in kassa
    */
   public double hoeveelheidGeldInKassa() {
-    //omitted
+      return kassa.hoeveelheidGeldInKassa();
   }
 
   /**
@@ -49,7 +60,7 @@ public class Kantine {
    * @return het aantal gepasseerde artikelen
    */
   public int aantalArtikelen(){
-    //omitted
+      return kassa.aantalArtikelen();
   }
 
   /**
@@ -58,6 +69,6 @@ public class Kantine {
    * en "leegt" de inhoud van de kassa.
    */
   public void resetKassa() {
-    // omitted
+      kassa.resetKassa();
   }
 }
