@@ -61,7 +61,7 @@ public class Artikel
     /**
      * Return de prijs van het artikel.
      */
-    public int getPrijs()
+    public double getPrijs()
     {
     	return prijs;
     }
