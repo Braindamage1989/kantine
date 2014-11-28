@@ -221,7 +221,7 @@ public class Persoon
     * @param dienblad
     */
     public void pakDienblad(Dienblad dienblad) {
-        dienblad = new Dienblad(); 
+        this.dienblad = dienblad; 
     }
 
     /**
@@ -238,8 +238,7 @@ public class Persoon
      * @return De totaalprijs
      */
     public double getTotaalPrijs() {
-        double totaal = dienblad.getTotaalPrijs();
-        return totaal;
+        return dienblad.getTotaalPrijs();
     } 
 
     /**
@@ -248,7 +247,6 @@ public class Persoon
      * @return Het aantal artikelen
      */
     public int getAantalArtikelen() {
-        int aantal = dienblad.getAantalArtikelen();
-        return aantal;
+        return dienblad.getAantalArtikelen();
     }
 }
