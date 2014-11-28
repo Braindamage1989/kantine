@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Dienblad {
   private ArrayList<Artikel> artikelen;
 
@@ -5,7 +7,7 @@ public class Dienblad {
    * Constructor
    */
   public Dienblad() {
-    // method body omitted 
+    artikelen = new ArrayList<>(); 
   }
 
   /**
@@ -13,7 +15,7 @@ public class Dienblad {
    * @param artikel
    */
   public void voegToe(Artikel artikel) {
-    // method body omitted
+      artikelen.add(artikel);
   }
 
   /**
@@ -21,7 +23,7 @@ public class Dienblad {
    * @return Het aantal artikelen 
    */
   public int getAantalArtikelen() {
-    // method body omitted
+      return artikelen.size();
   }
 
   /**
@@ -29,7 +31,12 @@ public class Dienblad {
    * op dienblad uit te rekenen
    * @return De totaalprijs
    */
-  public double getTotaalPrijs() {
-    // method body omitted
+  public void getTotaalPrijs() {
+      int totaal = 0;
+      
+      for(Artikel artikel : artikelen) {
+          totaal += artikel.getPrijs();
+      }
+      System.out.println(totaal);
   }
 }
