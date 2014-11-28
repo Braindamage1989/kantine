@@ -26,8 +26,8 @@ public class KantineSimulatie {
       }
 
       kantine.verwerkRijVoorKassa();
-      kantine.aantalArtikelen();
-      kantine.hoeveelheidGeldInKassa();
+      System.out.println(kantine.aantalArtikelen());
+      System.out.println(kantine.hoeveelheidGeldInKassa());
       kantine.resetKassa();
     }
   }
