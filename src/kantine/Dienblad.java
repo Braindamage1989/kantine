@@ -1,3 +1,5 @@
+package kantine;
+
 import java.util.ArrayList;
 
 public class Dienblad {
