@@ -1,7 +1,7 @@
 public class Kantine {
   private Kassa kassa;
   private KassaRij kassarij;
-
+  private Hello hello;
   /**
    * Constructor
    */
