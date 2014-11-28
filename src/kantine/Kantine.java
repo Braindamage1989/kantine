@@ -3,8 +3,6 @@ package kantine;
 public class Kantine {
     private Kassa kassa;
     private Kassarij kassarij;
-    private Persoon persoon;
-    private Dienblad dienblad;
 
   /**
    * Constructor
@@ -23,8 +21,8 @@ public class Kantine {
    * voor de kassa.
    */
   public void loopPakSluitAan() {
-    persoon = new Persoon();
-    dienblad = new Dienblad();
+    Persoon persoon = new Persoon();
+    Dienblad dienblad = new Dienblad();
     
     Artikel artikel1 = new Artikel("Unox Worst", 2.00);
     Artikel artikel2 = new Artikel("Goedkoop Broodje", 0.50);
