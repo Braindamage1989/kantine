@@ -9,7 +9,7 @@ public class Dienblad {
      * Constructor
      */
     public Dienblad() {
-      artikelen = new ArrayList<>(); 
+        artikelen = new ArrayList<>(); 
     }
 
     /**
@@ -33,12 +33,12 @@ public class Dienblad {
      * op dienblad uit te rekenen
      * @return De totaalprijs
      */
-    public void getTotaalPrijs() {
+    public double getTotaalPrijs() {
         int totaal = 0;
 
         for(Artikel artikel : artikelen) {
             totaal += artikel.getPrijs();
         }
-        System.out.println(totaal);
+        return totaal;
     }
 }

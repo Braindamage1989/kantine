@@ -1,5 +1,7 @@
 package kantine;
 
+import java.util.ArrayList;
+
 /**
 * Een klasse die informatie over personen bijhoud.
 * Dit word een onderdeel van een grotere applicatie.
@@ -17,6 +19,7 @@ public class Persoon
         private int geboortemaand;
         private int geboortedag;
         private char geslacht;
+        private Dienblad dienblad;
     
     /**
     * Verzameling van alle gegevens
@@ -29,6 +32,7 @@ public class Persoon
         this.achternaam = achternaam;
         setGeboortedatum(geboortejaar, geboortemaand, geboortedag);
         setGeslacht(geslacht);
+        dienblad = null;
     }
     
     /**
@@ -211,39 +215,40 @@ public class Persoon
         System.out.println("Geboortedatum: " + getGeboorteDatum());
         System.out.println("Geslacht: " + getGeslacht());
     }
-   
-  /**
-   * Methode om dienblad te koppelen aan een persoon
-   * @param dienblad
-   *  
-  public void pakDienblad(Dienblad) {
-    //method body omitted
-  } 
+    
+    /**
+    * Methode om dienblad te koppelen aan een persoon
+    * @param dienblad
+    */
+    public void pakDienblad(Dienblad dienblad) {
+        dienblad = new Dienblad(); 
+    }
 
-  /**
-   * Methode om artikel te pakken en te plaatsen op het dienblad
-   * @param artikel
-   *
-  public void pakArtikel(Artikel artikel) {
-    //method body omitted
-  }
+    /**
+     * Methode om artikel te pakken en te plaatsen op het dienblad
+     * @param artikel
+     */
+    public void pakArtikel(Artikel artikel) {
+        dienblad.voegToe(artikel);
+    }
 
-  /**
-   * Methode om de totaalprijs van de artikelen 
-   * op dienblad dat bij de persoon hoort uit te rekenen
-   * @return De totaalprijs
-   *
-  public double getTotaalPrijs() {
-    //method body omitted
-  } 
+    /**
+     * Methode om de totaalprijs van de artikelen 
+     * op dienblad dat bij de persoon hoort uit te rekenen
+     * @return De totaalprijs
+     */
+    public double getTotaalPrijs() {
+        double totaal = dienblad.getTotaalPrijs();;
+        return totaal;
+    } 
 
-  /**
-   * Methode om het aantal artikelen op dienblad dat bij de 
-   * persoon hoort te tellen
-   * @return Het aantal artikelen
-   *
-  public int getAantalArtikelen() {
-    //method body omitted    
-  }
-  */
+    /**
+     * Methode om het aantal artikelen op dienblad dat bij de 
+     * persoon hoort te tellen
+     * @return Het aantal artikelen
+     */
+    public int getAantalArtikelen() {
+        int aantal = dienblad.getAantalArtikelen();
+        return aantal;
+    }
 }
