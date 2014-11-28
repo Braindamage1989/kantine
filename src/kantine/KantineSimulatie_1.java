@@ -1,5 +1,13 @@
 package kantine;
 
+/**
+* Een klasse die een kantine simuleert
+* aan de hand van andere klassen.
+* 
+* @author Ronald Scholten
+* @version 28-11-2014
+*/
+
 public class KantineSimulatie {
   private Kantine kantine;
 

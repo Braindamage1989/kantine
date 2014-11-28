@@ -1,5 +1,13 @@
 package kantine;
 
+/**
+* Een klasse die informatie over kassa's bijhoud.
+* Dit word een onderdeel van een grotere applicatie.
+* 
+* @author Ronald Scholten & David Bor
+* @version 28-11-2014
+*/
+
 public class Kassa { 
 	private Kassarij kassarij;
 	private int aantalGepasseerdeArtikelen;

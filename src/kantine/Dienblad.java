@@ -1,15 +1,23 @@
 package kantine;
 
-import java.util.ArrayList;
+import java.util.Stack;
+
+/**
+* Een klasse die een dienblad simuleert
+* waar artikelen op kunnen worden gezet.
+* 
+* @author Ronald Scholten & David Bor
+* @version 28-11-2014
+*/
 
 public class Dienblad {
-    private ArrayList<Artikel> artikelen;
+    private Stack<Artikel> artikelen;
 
     /**
      * Constructor
      */
     public Dienblad() {
-        artikelen = new ArrayList<>(); 
+        artikelen = new Stack<>(); 
     }
 
     /**
@@ -17,7 +25,7 @@ public class Dienblad {
      * @param artikel
      */
     public void voegToe(Artikel artikel) {
-        artikelen.add(artikel);
+        artikelen.push(artikel);
     }
 
     /**
@@ -36,7 +44,8 @@ public class Dienblad {
     public double getTotaalPrijs() {
         double totaal = 0;
 
-        for(Artikel artikel : artikelen) {
+        for(;this.getAantalArtikelen() > 0;) {
+            Artikel artikel = artikelen.pop();
             totaal += artikel.getPrijs();
         }
         return totaal;

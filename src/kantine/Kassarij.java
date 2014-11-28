@@ -1,15 +1,23 @@
 package kantine;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
+
+/**
+* Een klasse die lijst van personen bijhoud die in een rij staan.
+* Dit word een onderdeel van een grotere applicatie.
+* 
+* @author David Bor
+* @version 28-11-2014
+*/
 
 class KassaRij {
-	private ArrayList<Persoon> personen;
+	private LinkedList<Persoon> personen;
 	
 	/**
 	 * Constructor
 	 */
 	public KassaRij() {
-	  personen = new ArrayList<>(); 
+	  personen = new LinkedList<>(); 
 	}
 	
 	/**

@@ -1,5 +1,13 @@
 package kantine;
 
+/**
+* Een klasse die aan de hand van andere klassen
+* een nabootsing maakt van een kantine.
+* 
+* @author Ronald Scholten
+* @version 28-11-2014
+*/
+
 public class Kantine {
     private Kassa kassa;
     private Kassarij kassarij;
