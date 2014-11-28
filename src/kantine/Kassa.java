@@ -21,7 +21,6 @@ public class Kassa {
 	public void rekenAf(Persoon persoon) {
 		aantalGepasseerdeArtikelen += persoon.getAantalArtikelen();
 		totaalInKassa += persoon.getTotaalPrijs();
-		return persoon;
 	}
 	
 	/**
