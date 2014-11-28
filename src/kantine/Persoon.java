@@ -238,7 +238,7 @@ public class Persoon
      * @return De totaalprijs
      */
     public double getTotaalPrijs() {
-        double totaal = dienblad.getTotaalPrijs();;
+        double totaal = dienblad.getTotaalPrijs();
         return totaal;
     } 
 
