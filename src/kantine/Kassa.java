@@ -1,3 +1,5 @@
+package kantine;
+
 public class Kassa { 
 	private Kassarij kassarij;
 	private int aantalGepasseerdeArtikelen;
