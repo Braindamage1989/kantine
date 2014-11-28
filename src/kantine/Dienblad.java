@@ -34,7 +34,7 @@ public class Dienblad {
      * @return De totaalprijs
      */
     public double getTotaalPrijs() {
-        int totaal = 0;
+        double totaal = 0;
 
         for(Artikel artikel : artikelen) {
             totaal += artikel.getPrijs();
