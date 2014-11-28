@@ -32,16 +32,16 @@ public class Persoon
     }
     
     /**
-     * Een constructor zonder parameters
-     */
-     public Persoon()
-     {
-         bsn = 0;
-         voornaam = "";
-         achternaam = "";
-         setGeboortedatum(0, 0, 0);
-         geslacht = 'o';
-     }
+    * Een constructor zonder parameters
+    */
+    public Persoon()
+    {
+        bsn = 0;
+        voornaam = "";
+        achternaam = "";
+        setGeboortedatum(0, 0, 0);
+        geslacht = 'o';
+    }
     
     /**
     * Setter voor bsn
@@ -121,7 +121,7 @@ public class Persoon
         if (controle) {
             this.geboortedag = geboortedag;
             this.geboortemaand = geboortemaand;
-            this.geboortejaar = tempGeboortejaar;
+            this.geboortejaar = geboortejaar;
         }else {
             this.geboortedag = 0;
             this.geboortemaand = 0;
