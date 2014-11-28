@@ -1,13 +1,17 @@
+package kantine;
+
 public class Kantine {
   private Kassa kassa;
   private KassaRij kassarij;
+  private Persoon persoon;
+  private Dienblad dienblad;
 
   /**
    * Constructor
    */
   public Kantine() {
-    kassarij=new KassaRij();
-    kassa=new Kassa(kassarij);
+    kassarij = new KassaRij();
+    kassa = new Kassa(kassarij);
   }
 
   /**
@@ -19,7 +23,8 @@ public class Kantine {
    * voor de kassa.
    */
   public void loopPakSluitAan() {
-    //omitted
+      persoon = new Persoon();
+      dienblad = new Dienblad();
   }
 
   /**
