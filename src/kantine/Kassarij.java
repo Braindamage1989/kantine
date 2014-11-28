@@ -28,11 +28,14 @@ class KassaRij {
 	 */
 	public Persoon eerstePersoonInRij() {
 		boolean eenRij = erIsEenRij();
+		Persoon persoon;
 		if(eenRij) {
-			return personen.get(0);
+			persoon = personen.get(0);
+			personen.remove(0);
+			return persoon;
 		}
 		else {
-			return null
+			return null;
 		}
 	}
 	
