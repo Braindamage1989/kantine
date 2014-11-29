@@ -1,0 +1,4 @@
+Opgave 5a
+We kunnen hier beter een while lus gebruiken, omdat het vooraf niet vast staat hoeveel mensen er in de rij staan.
+Het kan zijn dat er 1 persoon in de rij staat, maar voor hetzelfde geld ook 10.
+Bij een for lus zou je dan een complexe voorwaarde moeten maken, terwijl een while lus gewoon net zo lang doorgaat tot alles geweest is.
