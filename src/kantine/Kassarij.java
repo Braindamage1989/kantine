@@ -10,13 +10,13 @@ import java.util.LinkedList;
 * @version 28-11-2014
 */
 
-class KassaRij {
+class Kassarij {
 	private LinkedList<Persoon> personen;
 	
 	/**
 	 * Constructor
 	 */
-	public KassaRij() {
+	public Kassarij() {
 	  personen = new LinkedList<>(); 
 	}
 	
