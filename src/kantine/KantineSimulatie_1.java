@@ -25,6 +25,7 @@ public class KantineSimulatie {
    */
   public void simuleer(int dagen) {
       int dag = 1;
+      Kassa kassa = kantine.getKassa();
     // for lus voor dagen
     for(int i=0;i<dagen;i++) {
       // per dag nu even vast 10+i personen naar binnen
@@ -36,9 +37,9 @@ public class KantineSimulatie {
       System.out.println("Resultaten dag " + dag +"");
       
       kantine.verwerkRijVoorKassa();
-      System.out.println("Aantal artikelen: "+ kantine.aantalArtikelen() +"");
-      System.out.println("Hoeveelheid geld van kassa: "+ kantine.hoeveelheidGeldInKassa() +"");
-      kantine.resetKassa();
+      System.out.println("Aantal artikelen: "+ kassa.aantalArtikelen() +"");
+      System.out.println("Hoeveelheid geld van kassa: "+ kassa.hoeveelheidGeldInKassa() +"");
+      kassa.resetKassa();
       dag++;
     }
   }
