@@ -231,22 +231,4 @@ public class Persoon
     public void pakArtikel(Artikel artikel) {
         dienblad.voegToe(artikel);
     }
-
-    /**
-     * Methode om de totaalprijs van de artikelen 
-     * op dienblad dat bij de persoon hoort uit te rekenen
-     * @return De totaalprijs
-     */
-    public double getTotaalPrijs() {
-        return dienblad.getTotaalPrijs();
-    } 
-
-    /**
-     * Methode om het aantal artikelen op dienblad dat bij de 
-     * persoon hoort te tellen
-     * @return Het aantal artikelen
-     */
-    public int getAantalArtikelen() {
-        return dienblad.getAantalArtikelen();
-    }
 }
