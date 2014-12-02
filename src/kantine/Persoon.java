@@ -223,6 +223,10 @@ public class Persoon
     public void pakDienblad(Dienblad dienblad) {
         this.dienblad = dienblad; 
     }
+    
+    public Dienblad getDienblad() {
+	return dienblad;
+    }
 
     /**
      * Methode om artikel te pakken en te plaatsen op het dienblad
