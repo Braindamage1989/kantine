@@ -12,13 +12,16 @@ public class Kantine {
     private Kassa kassa;
     private Kassarij kassarij;
     
-
   /**
    * Constructor
    */
   public Kantine() {
     kassarij = new Kassarij();
     kassa = new Kassa(kassarij);
+  }
+  
+  public Kassa getKassa() {
+	  return kassa;
   }
 
   /**
