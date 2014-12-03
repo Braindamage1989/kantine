@@ -41,8 +41,8 @@ public class Kantine {
     
     persoon.pakDienblad(dienblad);
     
-    persoon.pakArtikel(artikel1);
-    persoon.pakArtikel(artikel2);
+    dienblad.voegToe(artikel1);
+    dienblad.voegToe(artikel2);
             
     kassarij.sluitAchteraan(persoon);
   }

@@ -1,4 +1,5 @@
 package kantine;
+ 
 
 import java.util.ArrayList;
 
@@ -225,14 +226,7 @@ public class Persoon
     }
     
     public Dienblad getDienblad() {
-	return dienblad;
+        return dienblad;
     }
-
-    /**
-     * Methode om artikel te pakken en te plaatsen op het dienblad
-     * @param artikel
-     */
-    public void pakArtikel(Artikel artikel) {
-        dienblad.voegToe(artikel);
-    }
+    
 }

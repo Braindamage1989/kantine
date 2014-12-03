@@ -1,6 +1,7 @@
 package kantine;
 
 import java.util.Stack;
+import java.util.Iterator;
 
 /**
 * Een klasse die een dienblad simuleert
@@ -28,26 +29,8 @@ public class Dienblad {
         artikelen.push(artikel);
     }
 
-    /**
-     * Methode om aantal artikelen op dienblad te tellen
-     * @return Het aantal artikelen 
-     */
-    public int getAantalArtikelen() {
-        return artikelen.size();
-    }
-
-    /**
-     * Methode om de totaalprijs van de artikelen 
-     * op dienblad uit te rekenen
-     * @return De totaalprijs
-     */
-    public double getTotaalPrijs() {
-        double totaal = 0;
-
-        for(;this.getAantalArtikelen() > 0;) {
-            Artikel artikel = artikelen.pop();
-            totaal += artikel.getPrijs();
-        }
-        return totaal;
+    public Iterator<Artikel> getArtikelen()
+    {
+        return artikelen.iterator();
     }
 }

@@ -1,4 +1,7 @@
 package kantine;
+ 
+
+import java.util.Iterator;
 
 /**
 * Een klasse die informatie over kassa's bijhoud.
@@ -10,6 +13,8 @@ package kantine;
 
 public class Kassa { 
 	private Kassarij kassarij;
+        private Dienblad dienblad;
+
 	private int aantalGepasseerdeArtikelen;
 	private double totaalInKassa;
 	
@@ -29,8 +34,16 @@ public class Kassa {
 	 * @param persoon die moet afrekenen
 	 */
 	public void rekenAf(Persoon persoon) {
-		aantalGepasseerdeArtikelen += persoon.getAantalArtikelen();
-		totaalInKassa += persoon.getTotaalPrijs();
+            Artikel artikel;
+            dienblad = persoon.getDienblad();
+            
+            Iterator<Artikel> artikelen = dienblad.getArtikelen();
+            
+            while(artikelen.hasNext()) {
+                artikel = artikelen.next();
+                totaalInKassa += artikel.getPrijs();
+                aantalGepasseerdeArtikelen++;
+            }
 	}
 	
 	/**
@@ -41,7 +54,7 @@ public class Kassa {
 	 * @return aantal artikelen
 	 */
 	public int aantalArtikelen() {
-		return aantalGepasseerdeArtikelen;
+            return aantalGepasseerdeArtikelen;
 	}
 	
 	/**
