@@ -11,17 +11,20 @@ package kantine;
 public class Kantine {
     private Kassa kassa;
     private Kassarij kassarij;
+    private KantineAanbod kantineaanbod;
     
   /**
    * Constructor
    */
-  public Kantine() {
+  public Kantine (String[] naam, double[] prijs, int[] aantal)
+  {
     kassarij = new Kassarij();
     kassa = new Kassa(kassarij);
+    setKantineAanbod(naam, prijs, aantal);
   }
   
   public Kassa getKassa() {
-	  return kassa;
+    return kassa;
   }
 
   /**
@@ -31,7 +34,6 @@ public class Kantine {
    * deze op het dienblad.   
    * Tenslotte sluit de Persoon zich aan bij de rij 
    * voor de kassa.
-   */
   public void loopPakSluitAan() {
     Persoon persoon = new Persoon();
     Dienblad dienblad = new Dienblad();
@@ -46,6 +48,17 @@ public class Kantine {
             
     kassarij.sluitAchteraan(persoon);
   }
+  */
+  
+   /**
+   * In deze methode kiest een Persoon met een dienblad
+   * de artikelen in artikelnamen.
+   * @param persoon
+   * @artikelnamen
+   */
+   public void loopPakSluitAan(Persoon persoon, String[] artikelnamen) {
+      //omitted
+   }
 
   /**
    * Deze methode handelt de rij voor de kassa af.
@@ -56,4 +69,15 @@ public class Kantine {
         kassa.rekenAf(kassarij.eerstePersoonInRij());
     }
   }
+  
+  public KantineAanbod getKantineAanbod()
+  {
+    return kantineaanbod;
+  }
+  
+  public void setKantineAanbod(String[] naam, double[] prijs, int[] aantal)
+  {
+      kantineaanbod = new KantineAanbod(naam, prijs, aantal);
+  }
+      
 }
