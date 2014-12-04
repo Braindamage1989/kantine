@@ -50,15 +50,16 @@ public class Kantine {
   }
   */
   
-   /**
-   * In deze methode kiest een Persoon met een dienblad
-   * de artikelen in artikelnamen.
-   * @param persoon
-   * @artikelnamen
-   */
-   public void loopPakSluitAan(Persoon persoon, String[] artikelnamen) {
-      //omitted
-   }
+  /**
+  * In deze methode kiest een Persoon met een dienblad
+  * de artikelen in artikelnamen.
+  * @param persoon
+  * @artikelnamen
+  */
+  public void loopPakSluitAan(Persoon persoon, String[] artikelnamen)
+  {
+    //omitted
+  }
 
   /**
    * Deze methode handelt de rij voor de kassa af.
@@ -77,7 +78,7 @@ public class Kantine {
   
   public void setKantineAanbod(String[] naam, double[] prijs, int[] aantal)
   {
-      kantineaanbod = new KantineAanbod(naam, prijs, aantal);
+    kantineaanbod = new KantineAanbod(naam, prijs, aantal);
   }
       
 }
