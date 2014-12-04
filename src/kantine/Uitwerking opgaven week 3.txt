@@ -1,0 +1,8 @@
+Opgave 1A
+aantalArtikelen(), hoeveelheidGeldInKassa(), resetKassa()
+
+Opgave 2A
+Deze hoeven alleen maar benaderbaar zijn vanuit de klasse KantineAanbod zelf, dit komt omdat ze alleen betrekking hebben op het assortiment
+
+Opgave 2B
+HashSet gebruik als je als je gegevens wil opslaan maar hierin geen duplicaten wil hebben. Hashmap daarin tegen gebruik je om gegevens op te slaan die uit een sleutel & waarde paar bestaan.
