@@ -1,5 +1,4 @@
-package kantine;
- 
+package kantine; 
 
 import java.util.ArrayList;
 
