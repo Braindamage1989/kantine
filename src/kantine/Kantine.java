@@ -4,25 +4,38 @@ package kantine;
 * Een klasse die aan de hand van andere klassen
 * een nabootsing maakt van een kantine.
 * 
-* @author Ronald Scholten
-* @version 28-11-2014
+* @author Ronald Scholten and David Bor
+* @version 05-12-2014
 */
-
 public class Kantine {
     private Kassa kassa;
-    private Kassarij kassarij;
+    private KassaRij kassarij;
     private KantineAanbod kantineaanbod;
     
   /**
-   * Constructor
+   * Constructor voor het direct setten van het aanbod
    */
   public Kantine (String[] naam, double[] prijs, int[] aantal)
   {
-    kassarij = new Kassarij();
+    kassarij = new KassaRij();
     kassa = new Kassa(kassarij);
     setKantineAanbod(naam, prijs, aantal);
   }
   
+  /**
+   * Lege constructor
+   */
+  public Kantine ()
+  {
+    kassarij = new KassaRij();
+    kassa = new Kassa(kassarij);
+    kantineaanbod = null;
+  }
+  
+  /**
+   * Deze methode geeft de kassa van de kantine.
+   * @return kassa
+   */
   public Kassa getKassa() {
     return kassa;
   }
@@ -54,7 +67,7 @@ public class Kantine {
   * In deze methode kiest een Persoon met een dienblad
   * de artikelen in artikelnamen.
   * @param persoon
-  * @artikelnamen
+  * @param artikelnamen
   */
   public void loopPakSluitAan(Persoon persoon, String[] artikelnamen)
   {
@@ -76,11 +89,33 @@ public class Kantine {
     }
   }
   
+  /**
+   * Deze methode geeft het kantineaanbod van de kantine.
+   * @return kantineaanbod
+   */
   public KantineAanbod getKantineAanbod()
   {
     return kantineaanbod;
   }
   
+  /**
+   * Deze methode set het kantineaanbod aan de hand van
+   * een gegeven aanbod.
+   * @param kantineaanbod
+   */
+  public void setKantineAanbod(KantineAanbod kantineaanbod)
+  {
+    this.kantineaanbod = kantineaanbod;
+  }
+  
+  /**
+   * Deze methode set het kantineaanbod aan de hand van
+   * ingevoerde arrays. De ingevoerden arrays moeten 
+   * een gelijk aantal waarden bevatten.
+   * @param een array(String) van artikelnamen
+   * @param een array(double) van prijzen
+   * @param een array(int) van aantallen
+   */
   public void setKantineAanbod(String[] naam, double[] prijs, int[] aantal)
   {
     kantineaanbod = new KantineAanbod(naam, prijs, aantal);

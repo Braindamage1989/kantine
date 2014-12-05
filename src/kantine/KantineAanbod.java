@@ -2,6 +2,13 @@ package kantine;
 
 import java.util.*;
 
+/**
+* Een klasse die het aanbod van een kantine
+* bijhoud.
+* 
+* @author Ronald Scholten and David Bor
+* @version 05-12-2014
+*/
 public class KantineAanbod {
     // interne opslag voorraad
     private HashMap<String, ArrayList<Artikel>> aanbod;
@@ -26,9 +33,11 @@ public class KantineAanbod {
         }
     }
 
-    /*
+    /**
      * Private methode om de lijst van artikelen te krijgen op basis van de    
      * naam van het artikel. Retourneert null als artikel niet bestaat.
+     * @param productnaam
+     * @return een array met productgegevens
      */
     private ArrayList<Artikel> getArrayList(String productnaam) {
          return aanbod.get(productnaam); 
@@ -37,6 +46,8 @@ public class KantineAanbod {
     /**
      * Private methode om een Artikel van de stapel artikelen af te pakken. 
      * Retourneert null als de stapel leeg is.
+     * @param een array met productgegevens
+     * @return null of een Artikel
      */
     private Artikel getArtikel(ArrayList<Artikel> stapel) {
         if (stapel==null) { 
