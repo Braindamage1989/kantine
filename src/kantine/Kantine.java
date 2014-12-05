@@ -11,6 +11,7 @@ package kantine;
 public class Kantine {
     private Kassa kassa;
     private Kassarij kassarij;
+    private Dienblad dienblad;
     private KantineAanbod kantineaanbod;
     
   /**
@@ -58,7 +59,12 @@ public class Kantine {
   */
   public void loopPakSluitAan(Persoon persoon, String[] artikelnamen)
   {
-    //omitted
+    persoon.getDienblad();
+    for (String artikelnaam : artikelnamen) {
+        Artikel artikel = kantineaanbod.getArtikel(artikelnaam);
+        dienblad.voegToe(artikel);
+    }
+    kassarij.sluitAchteraan(persoon);
   }
 
   /**
