@@ -16,7 +16,8 @@ class Kassarij {
 	/**
 	 * Constructor
 	 */
-	public Kassarij() {
+	public Kassarij() 
+	{
 	  personen = new LinkedList<>(); 
 	}
 	
@@ -24,7 +25,8 @@ class Kassarij {
 	 * Persoon sluit achter in de rij aan
 	 * @param persoon
 	 */
-	public void sluitAchteraan(Persoon persoon) {
+	public void sluitAchteraan(Persoon persoon) 
+	{
 		personen.add(persoon);
 	}
 	
@@ -34,7 +36,8 @@ class Kassarij {
 	 * Als er niemand in de rij staat geeft deze null terug.
 	 * @return Eerste persoon in de rij of null
 	 */
-	public Persoon eerstePersoonInRij() {
+	public Persoon eerstePersoonInRij() 
+	{
 		boolean eenRij = erIsEenRij();
 		Persoon persoon;
 		if(eenRij) {
@@ -51,7 +54,8 @@ class Kassarij {
 	 * Methode kijkt of er personen in de rij staan. 
 	 * @return Of er wel of geen rij bestaat
 	 */
-	public boolean erIsEenRij() {
+	public boolean erIsEenRij() 
+	{
 		boolean eenRij;
 		if(personen.size() > 0) {
 			eenRij = true;
@@ -59,7 +63,6 @@ class Kassarij {
 		else {
 			eenRij = false;
 		}
-		
 		return eenRij;
 	}
 }

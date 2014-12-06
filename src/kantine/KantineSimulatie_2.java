@@ -9,7 +9,8 @@ import java.util.*;
 * @author Ronald Scholten and David Bor
 * @version 05-12-2014
 */
-public class KantineSimulatie {
+public class KantineSimulatie 
+{
 	// kantine
 	private Kantine kantine;
 	
@@ -20,37 +21,38 @@ public class KantineSimulatie {
 	private Random random;
 	
 	// aantal artikelen
-	private static final int AANTAL_ARTIKELEN=4;
+	private static final int AANTAL_ARTIKELEN = 4;
 	
 	// artikelen
-	private static final String[] artikelnamen=
+	private static final String[] artikelnamen =
 		new String[] {"Koffie","Broodje hamburger", "Broodje kaas", "Melk"};
 	
 	// prijzen
-	private static double[] artikelprijzen=
+	private static double[] artikelprijzen =
 		new double[]{1.50, 2.10, 1.65, 1.65};   
 	
 	// minimum en maximum aantal artikelen per soort
-	private static final int MIN_ARTIKELEN_PER_SOORT=10000;
-	private static final int MAX_ARTIKELEN_PER_SOORT=20000;
+	private static final int MIN_ARTIKELEN_PER_SOORT = 10000;
+	private static final int MAX_ARTIKELEN_PER_SOORT = 20000;
 	
 	// minimum en maximum aantal personen per dag
-	private static final int MIN_PERSONEN_PER_DAG=50;
-	private static final int MAX_PERSONEN_PER_DAG=100;
+	private static final int MIN_PERSONEN_PER_DAG = 50;
+	private static final int MAX_PERSONEN_PER_DAG = 100;
 	
 	// minimum en maximum artikelen per persoon
-	private static final int MIN_ARTIKELEN_PER_PERSOON=1;
-	private static final int MAX_ARTIKELEN_PER_PERSOON=4;
+	private static final int MIN_ARTIKELEN_PER_PERSOON = 1;
+	private static final int MAX_ARTIKELEN_PER_PERSOON = 4;
 	
 	/**
 	 * Constructor
 	 */
-	public KantineSimulatie(){
-		kantine=new Kantine();
-		random=new Random();
-	 	int[] hoeveelheden=getRandomArray(
+	public KantineSimulatie()
+	{
+		kantine = new Kantine();
+		random = new Random();
+	 	int[] hoeveelheden = getRandomArray(
  			AANTAL_ARTIKELEN,MIN_ARTIKELEN_PER_SOORT, MAX_ARTIKELEN_PER_SOORT);
-	 	kantineaanbod=new KantineAanbod(artikelnamen, artikelprijzen, 
+	 	kantineaanbod = new KantineAanbod(artikelnamen, artikelprijzen, 
  			hoeveelheden); 
 	 	kantine.setKantineAanbod(kantineaanbod);
 	}
@@ -63,10 +65,11 @@ public class KantineSimulatie {
 	 * @param max
 	 * @return De array met random getallen
 	 */
-	private int[] getRandomArray(int lengte, int min, int max) {
-		int[] temp=new int[lengte];
-		for(int i=0;i<lengte;i++) {
-			temp[i]=getRandomValue(min, max);
+	private int[] getRandomArray(int lengte, int min, int max) 
+	{
+		int[] temp = new int[lengte];
+		for(int i = 0;i < lengte;i++) {
+			temp[i] = getRandomValue(min, max);
 		}
 		return temp;
 	}
@@ -78,7 +81,8 @@ public class KantineSimulatie {
 	 * @param max
 	 * @return Een random getal
 	 */
-	private int getRandomValue(int min, int max) {
+	private int getRandomValue(int min, int max) 
+	{
 		return random.nextInt(max-min+1)+min;
 	}
 	
@@ -88,10 +92,11 @@ public class KantineSimulatie {
 	 * @param indexen
 	 * @return De array met artikelnamen
 	 */
-	private String[] geefArtikelNamen(int[] indexen) {
-		String[] artikelen=new String[indexen.length];
-		for(int i=0;i<indexen.length;i++) { 
-			artikelen[i]=artikelnamen[indexen[i]];
+	private String[] geefArtikelNamen(int[] indexen) 
+	{
+		String[] artikelen = new String[indexen.length];
+		for(int i = 0;i < indexen.length;i++) { 
+			artikelen[i] = artikelnamen[indexen[i]];
 		}
 		return artikelen;
 	}
@@ -101,28 +106,29 @@ public class KantineSimulatie {
 	 * verloop van de kantine
 	 * @param dagen
 	 */
-	public void simuleer(int dagen) {
+	public void simuleer(int dagen) 
+	{
 		// for lus voor dagen
-		for(int i=0;i<dagen;i++) {
+		for(int i = 0;i < dagen;i++) {
 			// bedenk hoeveel personen vandaag binnen lopen
-			int aantalpersonen=getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
+			int aantalpersonen = getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
 			// laat de personen maar komen...
-			for(int j=0;j<aantalpersonen;j++) {
+			for(int j = 0;j < aantalpersonen;j++) {
 				// maak persoon en dienblad aan, koppel ze
 				Persoon persoon = new Persoon();
 				Dienblad dienblad = new Dienblad();
 				persoon.pakDienblad(dienblad);
       	
 				// bedenk hoeveel artikelen worden gepakt
-				int aantalartikelen=getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON);
+				int aantalartikelen = getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON);
 				
 				// genereer de "artikelnummers", dit zijn indexen 
 				// van de artikelnamen array  
-				int[] tepakken=getRandomArray(aantalartikelen, 0, AANTAL_ARTIKELEN-1);
+				int[] tepakken = getRandomArray(aantalartikelen, 0, AANTAL_ARTIKELEN-1);
 				
 				// vind de artikelnamen op basis van 
 				// de indexen hierboven
-				String[] artikelen=geefArtikelNamen(tepakken);
+				String[] artikelen = geefArtikelNamen(tepakken);
 
 				// loop de kantine binnen, pak de gewenste 
 				// artikelen, sluit aan

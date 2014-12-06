@@ -22,21 +22,20 @@ public class Persoon
         private Dienblad dienblad;
     
     /**
-    * Verzameling van alle gegevens
-    * Tot nu toch zonder goede check...
+    * Een constructor met als parameters persoongegevens
     */
     public Persoon(int bsn, String voornaam, String achternaam, int geboortejaar, int geboortemaand, int geboortedag, char geslacht)
     {
-        this.bsn = bsn;
-        this.voornaam = voornaam;
-        this.achternaam = achternaam;
+        setBsn(bsn);
+        setVoornaam(voornaam);
+        setAchternaam(achternaam);
         setGeboortedatum(geboortejaar, geboortemaand, geboortedag);
         setGeslacht(geslacht);
         dienblad = null;
     }
     
     /**
-    * Een constructor zonder parameters
+    * Lege constuctor
     */
     public Persoon()
     {
@@ -45,10 +44,12 @@ public class Persoon
         achternaam = "";
         setGeboortedatum(0, 0, 0);
         geslacht = 'o';
+        dienblad = null;
     }
     
     /**
     * Setter voor bsn
+    * @param bsn
     */
     public void setBsn(int bsn)
     {
@@ -57,6 +58,7 @@ public class Persoon
      
     /**
     * Setter voor voornaam 
+    * @param voornaam
     */
     public void setVoornaam(String voornaam)
     {
@@ -65,6 +67,7 @@ public class Persoon
      
     /**
     * Setter voor achternaam 
+    * @param achternaam
     */
     public void setAchternaam(String achternaam)
     {
@@ -74,6 +77,9 @@ public class Persoon
     /**
     * Setter voor geboortedatum
     * Met controle op juistheid van dag maand en jaar
+    * @param geboortejaar
+    * @param geboortemaand
+    * @param geboortedag
     */
     public void setGeboortedatum(int geboortejaar, int geboortemaand, int geboortedag)
     {
@@ -109,7 +115,8 @@ public class Persoon
                     if (geboortedag > 29) {
                        controle = false;
                     }
-                }else if (geboortedag > 28) {
+                }
+                else if (geboortedag > 28) {
                         controle = false;
                 }
                 break;
@@ -126,7 +133,8 @@ public class Persoon
             this.geboortedag = geboortedag;
             this.geboortemaand = geboortemaand;
             this.geboortejaar = geboortejaar;
-        }else {
+        }
+        else {
             this.geboortedag = 0;
             this.geboortemaand = 0;
             this.geboortejaar = 0;
@@ -135,12 +143,14 @@ public class Persoon
     
     /**
     * Set het geslacht, is het geslacht niet geldig dan wordt deze op 'o' gezet
+    * @param geslacht
     */
     public void setGeslacht(char geslacht)
     {
         if (geslacht == 'm' || geslacht == 'v'){
             this.geslacht = geslacht;
-        }else {
+        }
+        else {
             this.geslacht = 'o';
         }
     }
@@ -174,34 +184,46 @@ public class Persoon
     
     /**
     * Getter voor geboortedatum
-    * @return Geboortedatum
+    * @return geboortedatum (of onbekend)
     */
     public String getGeboorteDatum()
     {
         String temp;
-    if (geboortedag == 0 && geboortemaand == 0 && geboortejaar == 0) {
-        temp = "Onbekend";
-    }else {
-        temp = geboortedag+"/"+geboortemaand+"/"+geboortejaar;
-    }
-    return temp;
+	    if (geboortedag == 0 && geboortemaand == 0 && geboortejaar == 0) {
+	        temp = "Onbekend";
+	    }
+	    else {
+	        temp = geboortedag+"/"+geboortemaand+"/"+geboortejaar;
+	    }
+	    return temp;
     }
     
     /**
     * Getter voor geslacht
-    * @return geslacht
+    * @return geslacht (of "Onbekend")
     */
     public String getGeslacht()
     {
         String stringgeslacht;
         if (geslacht == 'm'){
             stringgeslacht="Man";
-        }else if(geslacht == 'v'){
+        }
+        else if (geslacht == 'v') {
             stringgeslacht = "Vrouw";
-        }else{
+        }
+        else {
             stringgeslacht = "Onbekend";
         }
         return stringgeslacht;
+    }
+
+    /**
+     * Getter voor dienblad
+     * @return Dienblad
+     */
+    public Dienblad getDienblad() 
+    {
+        return dienblad;
     }
     
     /**
@@ -220,12 +242,10 @@ public class Persoon
     * Methode om dienblad te koppelen aan een persoon
     * @param dienblad
     */
-    public void pakDienblad(Dienblad dienblad) {
+    public void pakDienblad(Dienblad dienblad) 
+    {
         this.dienblad = dienblad; 
     }
     
-    public Dienblad getDienblad() {
-        return dienblad;
-    }
     
 }

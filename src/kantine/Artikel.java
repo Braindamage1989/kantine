@@ -32,10 +32,13 @@ public class Artikel
     */
     public Artikel() 
     {
+    	this.naam = "";
+    	this.prijs = 0.0;
     }
     
     /**
      * Zet een naam voor het artikel.
+     * @param artikelnaam
      */
     public void setNaam(String naam)
     {
@@ -44,6 +47,7 @@ public class Artikel
     
     /**
      * Zet de prijs van het artikel.
+     * @param artikelprijs
      */
     public void setPrijs(double prijs)
     {
@@ -66,6 +70,9 @@ public class Artikel
     	return prijs;
     }
     
+    /**
+     * Druk de gegevens van hety artikel af.
+     */
     public void drukAf()
     {
     	System.out.println(naam + " Prijs: " + prijs);

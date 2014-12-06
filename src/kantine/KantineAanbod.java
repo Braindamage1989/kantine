@@ -9,7 +9,8 @@ import java.util.*;
 * @author Ronald Scholten and David Bor
 * @version 05-12-2014
 */
-public class KantineAanbod {
+public class KantineAanbod 
+{
     // interne opslag voorraad
     private HashMap<String, ArrayList<Artikel>> aanbod;
    
@@ -20,13 +21,12 @@ public class KantineAanbod {
      * is een lijst met hoeveelheden. Let op: de dimensies van de drie arrays
      * moeten wel gelijk zijn!
      */
-    public KantineAanbod(String[] artikelnaam, double[] prijs, int[] hoeveelheid) {
-        aanbod=new HashMap<String, ArrayList<Artikel>>();
-        for(int i=0;i<artikelnaam.length;i++) 
-        {
-            ArrayList<Artikel> artikelen=new ArrayList<Artikel>();
-            for(int j=0;j<hoeveelheid[i];j++) 
-            {
+    public KantineAanbod(String[] artikelnaam, double[] prijs, int[] hoeveelheid) 
+    {
+        aanbod = new HashMap<String, ArrayList<Artikel>>();
+        for(int i = 0;i < artikelnaam.length;i++) {
+            ArrayList<Artikel> artikelen = new ArrayList<Artikel>();
+            for(int j = 0;j < hoeveelheid[i];j++) {
                 artikelen.add(new Artikel(artikelnaam[i], prijs[i]));
             }
             aanbod.put(artikelnaam[i], artikelen);
@@ -39,7 +39,8 @@ public class KantineAanbod {
      * @param productnaam
      * @return een array met productgegevens
      */
-    private ArrayList<Artikel> getArrayList(String productnaam) {
+    private ArrayList<Artikel> getArrayList(String productnaam) 
+    {
          return aanbod.get(productnaam); 
     }
 
@@ -49,17 +50,16 @@ public class KantineAanbod {
      * @param een array met productgegevens
      * @return null of een Artikel
      */
-    private Artikel getArtikel(ArrayList<Artikel> stapel) {
-        if (stapel==null) { 
+    private Artikel getArtikel(ArrayList<Artikel> stapel) 
+    {
+        if (stapel == null) { 
             return null;
         }
-        if (stapel.size()==0)
-        {
+        if (stapel.size() == 0) {
            return null;
         }
-        else 
-        {
-            Artikel a=stapel.get(0);
+        else {
+            Artikel a = stapel.get(0);
             stapel.remove(0);
             return a;
         }
@@ -71,7 +71,8 @@ public class KantineAanbod {
      * @param naam (van artikel)
      * @return artikel (of null)
      */
-    public Artikel getArtikel(String naam) {
+    public Artikel getArtikel(String naam) 
+    {
         return getArtikel(getArrayList(naam));
     }
 }
