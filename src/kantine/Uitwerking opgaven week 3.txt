@@ -6,3 +6,13 @@ Deze hoeven alleen maar benaderbaar zijn vanuit de klasse KantineAanbod zelf, di
 
 Opgave 2B
 HashSet gebruik als je als je gegevens wil opslaan maar hierin geen duplicaten wil hebben. Hashmap daarin tegen gebruik je om gegevens op te slaan die uit een sleutel & waarde paar bestaan.
+
+Opgave 3A
+De constructor maakt eerst 2 objecten aan. Een van de klasse Kantine en een van de klasse Random. De klasse Random wordt gebruikt om willekeurige waarden te genereren.
+Vervolgens wordt er een array aangemaakt voor de hoeveelheden, deze worden willekeurig bepaald door de methode getRandomArray. Voor deze methode zijn we een lengte nodig
+(het aantal waardes dat in de array komt), een minimale waarde en een maximale waarde. Vervolgens maken we een nog een object aan van de klasse KantineAanbod. Hierin
+staan de artikelen en de bijbehorende prijzen. Uiteindelijk moet dit nog geset worden, dit gebeurd door de functie setKantineAanbod aan te roepen van de klasse KantineAanbod.
+
+Opgave 3B
+De +1 is nodig omdat de willekeurige waarde bij een inclusieve random gaat tot, en niet tot en met. Als we alleen max - min gebruiken is er een kans dat we een getal krijgen
+dat zich niet bevind in de range die opgegeven is.
