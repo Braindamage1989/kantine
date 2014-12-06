@@ -39,7 +39,7 @@ public class KantineAanbod
      * @param productnaam
      * @return een array met productgegevens
      */
-    private ArrayList<Artikel> getArrayList(String productnaam) 
+    public ArrayList<Artikel> getArrayList(String productnaam) 
     {
          return aanbod.get(productnaam); 
     }
