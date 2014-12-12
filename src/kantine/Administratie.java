@@ -5,6 +5,8 @@ public class Administratie {
     * @param aantal
     * @return het gemiddelde
     */
+    private Administratie() {};
+    
     public static double berekenGemiddeldAantal(int[] aantal) {
         double totaal = 0;
         int deler = 0;
@@ -43,5 +45,23 @@ public class Administratie {
             gemiddeldeOmzet = 0;
         }
         return gemiddeldeOmzet;
+    }
+    
+    /**
+    * Methode om dagomzet uit te rekenen
+    * @param omzet
+    * @return array (7 elementen) met dagomzetten
+    */
+    public static double[] berekenDagOmzet(double[] omzet) {
+        double[] temp=new double[7];
+        
+        for(int i=0;i<7;i++) {
+        int j=0;
+            while(...) {
+                temp[i]+=omzet[i+7*j];
+                //omitted
+        }
+    }
+    return temp;
     }
 }
