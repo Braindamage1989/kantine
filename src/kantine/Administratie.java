@@ -1,4 +1,14 @@
+package kantine
+
+/**
+ * Klasse om de administratie bij te houden...
+ * 
+ * @author David Bor and Ronald Scholten
+ * @version 12-12-2014
+ */
 public class Administratie {
+	private static final int DAYS_IN_WEEK = 7;
+	
     /**
     * Deze methode berekent van de int array aantal de 
     * gemiddelde waarde
@@ -48,20 +58,21 @@ public class Administratie {
     }
     
     /**
-    * Methode om dagomzet uit te rekenen
-    * @param omzet
-    * @return array (7 elementen) met dagomzetten
-    */
-    public static double[] berekenDagOmzet(double[] omzet) {
-        double[] temp=new double[7];
-        
-        for(int i=0;i<7;i++) {
-        int j=0;
-            while(...) {
-                temp[i]+=omzet[i+7*j];
-                //omitted
-        }
-    }
-    return temp;
+     * Methode om dagomzet uit te rekenen
+     * @param omzet
+     * @return array (7 elementen) met dagomzetten
+     */
+    public static double[] berekenDagOmzet(double[] omzet)
+    {
+    	double[] temp = new double[DAYS_IN_WEEK];
+    	for(int i = 0; i < DAYS_IN_WEEK; i++){
+    		int j = 0;
+    		while((i + DAYS_IN_WEEK*j) < omzet.length) {
+    		    
+    			temp[i] += omzet[i + DAYS_IN_WEEK*j];
+    			j++;
+    		}
+    	}
+    	return temp;
     }
 }
