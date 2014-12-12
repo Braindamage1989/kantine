@@ -12,9 +12,10 @@ package kantine;
 public class Student extends Persoon
 {
     private String studentnummer;
+    private String studierichting;
 
 
-    public Student(int bsn, String voornaam, String achternaam, int geboortejaar, int geboortemaand, int geboortedag, char geslacht, String studentnummer)
+    public Student(int bsn, String voornaam, String achternaam, int geboortejaar, int geboortemaand, int geboortedag, char geslacht, String studentnummer, String studierichting)
     {
         super(bsn, voornaam, achternaam, geboortejaar, geboortemaand, geboortedag, geslacht);
         this.studentnummer = studentnummer;
@@ -25,8 +26,23 @@ public class Student extends Persoon
         return studentnummer;
     }
     
-    public void getStudentnummer(String studentnummer)
+    public String getStudierichting()
+    {
+        return studierichting;
+    }
+    
+    public void setStudentnummer(String studentnummer)
     {
         this.studentnummer = studentnummer;
+    }
+    
+    public void setStudierichting(String studierichting)
+    {
+        this.studierichting = studierichting;
+    }
+    
+    public void drukAf()
+    {
+        System.out.println("Studentnummer: " + studentnummer);
     }
 }
