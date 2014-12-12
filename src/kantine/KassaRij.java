@@ -1,9 +1,5 @@
 package kantine;
 
-
-
-
-
 import java.util.LinkedList;
 
 /**
