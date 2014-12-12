@@ -41,4 +41,10 @@ public class KantineMedewerker extends Persoon
     {
         this.medewerkernummer = medewerkernummer;
     }
+    
+    public void drukAf()
+    {
+        System.out.println("Medewerkernummer: " + medewerkernummer);
+        System.out.println("Mag de persoon achter een kasse? " + magAchterKassa);
+    }
 }

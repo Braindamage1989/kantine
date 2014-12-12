@@ -41,4 +41,10 @@ public class Docent extends Persoon
     {
         this.afkorting = afkorting;
     }
+    
+    public void drukAf()
+    {
+        System.out.println("Afdeling: " + afdeling);
+        System.out.println("Afkorting: " + afkorting);
+    }
 }
