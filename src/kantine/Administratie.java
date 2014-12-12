@@ -1,4 +1,4 @@
-package kantine
+package kantine;
 
 /**
  * Klasse om de administratie bij te houden...
