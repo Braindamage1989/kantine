@@ -19,6 +19,7 @@ public class Student extends Persoon
     {
         super(bsn, voornaam, achternaam, geboortejaar, geboortemaand, geboortedag, geslacht);
         this.studentnummer = studentnummer;
+        this.studierichting = studierichting;
     }
     
     public String getStudentnummer()
@@ -44,5 +45,6 @@ public class Student extends Persoon
     public void drukAf()
     {
         System.out.println("Studentnummer: " + studentnummer);
+        System.out.println("Studentnummer: " + studierichting);
     }
 }
