@@ -13,7 +13,7 @@ import java.util.Iterator;
 
 public class Kassa 
 { 
-	private Kassarij kassarij;
+	private KassaRij kassarij;
     private Dienblad dienblad;
 
 	private int aantalGepasseerdeArtikelen;
@@ -22,7 +22,7 @@ public class Kassa
 	/**
 	 * Constructor
 	 */
-	public Kassa(Kassarij kassarij) 
+	public Kassa(KassaRij kassarij) 
 	{
 		this.kassarij = kassarij;
 		aantalGepasseerdeArtikelen = 0;
