@@ -9,14 +9,17 @@ package kantine;
 public class Administratie {
 	private static final int DAYS_IN_WEEK = 7;
 	
+	/**
+	 * Empty constructor
+	 */
+    private Administratie() {};
+	
     /**
     * Deze methode berekent van de int array aantal de 
     * gemiddelde waarde
     * @param aantal
     * @return het gemiddelde
     */
-    private Administratie() {};
-    
     public static double berekenGemiddeldAantal(int[] aantal) {
         double totaal = 0;
         int deler = 0;

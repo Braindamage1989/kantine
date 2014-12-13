@@ -1,3 +1,5 @@
+ 
+
 package kantine;
 
 import java.util.*;
@@ -107,8 +109,8 @@ public class KantineSimulatie
     /**
      * Methode om te checken of een product nog voldoende op
      * voorraad is
-     * @param artikelvoorraad
-     * @param hoeveelste artikel het is
+     * @param artikel voorraad
+     * @param positie in de array...
      * @return true of false
      */
     private boolean checkVoorraad(ArrayList<Artikel> artikel, int positie) 
@@ -123,8 +125,8 @@ public class KantineSimulatie
     
     /**
      * Methode om de voorraad van de kantine bij te vullen
-     * @param artikelvoorraad
-     * @param hoeveelste artikel het is
+     * @param artikel voorraad
+     * @param positie in array
      */
     private void vulVoorraadBij(ArrayList<Artikel> artikel, int positie) 
     {
@@ -153,52 +155,41 @@ public class KantineSimulatie
      */
     public void simuleer(int dagen) 
     {
-        // for lus voor dagen
         for(int i = 0;i < dagen;i++) {
-            // bedenk hoeveel personen vandaag binnen lopen
-            int aantalpersonen = getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
-            // laat de personen maar komen...
+            int aantalpersonen = 100;
             for(int j = 0;j < aantalpersonen;j++) {
-                // maak persoon en dienblad aan, koppel ze
-                Persoon persoon = new Persoon();
+                Persoon persoon;
+                if(j < 89) {
+                    persoon = new Student(13542856, "Paula", "Berksen", 1978, 4, 12, 'v', "321514", "ICT");
+                }
+                else if(j>=89&&j<99) {
+                    persoon = new Docent(36254125, "Henk", "Rodens", 1986, 8, 25, 'm', "ROHE", "ICT");
+                }
+                else {
+                    persoon = new KantineMedewerker(52145215, "Rosa", "Noda", 1995, 11, 2, 'v', "1254", false);
+                }
+                
                 Dienblad dienblad = new Dienblad();
                 persoon.pakDienblad(dienblad);
         
-                // bedenk hoeveel artikelen worden gepakt
                 int aantalartikelen = getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON);
-                
-                // genereer de "artikelnummers", dit zijn indexen 
-                // van de artikelnamen array  
                 int[] tepakken = getRandomArray(aantalartikelen, 0, AANTAL_ARTIKELEN-1);
-                
-                // vind de artikelnamen op basis van 
-                // de indexen hierboven
                 String[] artikelen = geefArtikelNamen(tepakken);
-
-                // loop de kantine binnen, pak de gewenste 
-                // artikelen, sluit aan
+                
+                persoon.drukAf();
                 kantine.loopPakSluitAan(persoon, artikelen);
             }
 
-            // verwerk rij voor de kassa
             kantine.verwerkRijVoorKassa();
             
-            // druk de dagtotalen af en hoeveel personen binnen 
-            // zijn gekomen
-            Kassa kassa = kantine.getKassa();
-            String totalPassed = "Aantal artikelen: "+ kassa.aantalArtikelen() +"";
-            String totalIncome = "Hoeveelheid geld van kassa: "+ kassa.hoeveelheidGeldInKassa() +"";
-            
             System.out.println("De dag totalen van dag " + (i + 1) + ":");
-            System.out.println(totalPassed);
-            System.out.println(totalIncome);
+            System.out.println("Aantal artikelen: "+ kantine.getKassa().aantalArtikelen() +"");
+            System.out.println("Hoeveelheid geld van kassa: "+ kantine.getKassa().hoeveelheidGeldInKassa() +"");
             System.out.println("Aantal klanten: " + aantalpersonen + "");
             System.out.println();
             
-            // reset de kassa voor de volgende dag
-            kassa.resetKassa();
+            kantine.getKassa().resetKassa();
             
-            //Voorraadchecken en bijvullen wanneer nodig
             voorraadBijhouden();
         }
     }
