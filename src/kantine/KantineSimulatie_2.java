@@ -1,6 +1,4 @@
- 
-
-package kantine;
+ package kantine;
 
 import java.util.*;
 
@@ -109,8 +107,8 @@ public class KantineSimulatie
     /**
      * Methode om te checken of een product nog voldoende op
      * voorraad is
-     * @param artikel voorraad
-     * @param positie in de array...
+     * @param artikelvoorraad
+     * @param hoeveelste artikel het is
      * @return true of false
      */
     private boolean checkVoorraad(ArrayList<Artikel> artikel, int positie) 
@@ -125,8 +123,8 @@ public class KantineSimulatie
     
     /**
      * Methode om de voorraad van de kantine bij te vullen
-     * @param artikel voorraad
-     * @param positie in array
+     * @param artikelvoorraad
+     * @param hoeveelste artikel het is
      */
     private void vulVoorraadBij(ArrayList<Artikel> artikel, int positie) 
     {
@@ -155,14 +153,18 @@ public class KantineSimulatie
      */
     public void simuleer(int dagen) 
     {
+        int[] dagGepasseerdeArtikelen = new int[dagen];
+        double[] dagOmzetten = new double[dagen];
+        
         for(int i = 0;i < dagen;i++) {
-            int aantalpersonen = 100;
+            int aantalpersonen = getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
             for(int j = 0;j < aantalpersonen;j++) {
                 Persoon persoon;
-                if(j < 89) {
+                int type = getRandomValue(0, 99);
+                if(type < 89) {
                     persoon = new Student(13542856, "Paula", "Berksen", 1978, 4, 12, 'v', "321514", "ICT");
                 }
-                else if(j>=89&&j<99) {
+                else if(type >= 89 && type < 99) {
                     persoon = new Docent(36254125, "Henk", "Rodens", 1986, 8, 25, 'm', "ROHE", "ICT");
                 }
                 else {
@@ -182,9 +184,12 @@ public class KantineSimulatie
 
             kantine.verwerkRijVoorKassa();
             
+            dagGepasseerdeArtikelen[i] = kantine.getKassa().aantalArtikelen();
+            dagOmzetten[i] = kantine.getKassa().hoeveelheidGeldInKassa();
+            
             System.out.println("De dag totalen van dag " + (i + 1) + ":");
-            System.out.println("Aantal artikelen: "+ kantine.getKassa().aantalArtikelen() +"");
-            System.out.println("Hoeveelheid geld van kassa: "+ kantine.getKassa().hoeveelheidGeldInKassa() +"");
+            System.out.println("Aantal artikelen: "+ dagGepasseerdeArtikelen[i] +"");
+            System.out.println("Hoeveelheid geld van kassa: "+ dagOmzetten[i] +"");
             System.out.println("Aantal klanten: " + aantalpersonen + "");
             System.out.println();
             
@@ -192,5 +197,20 @@ public class KantineSimulatie
             
             voorraadBijhouden();
         }
+        
+        double[] dagOmzet = Administratie.berekenDagOmzet(dagOmzetten);
+        
+        System.out.println("Gemiddelden over de simulatie van " + dagen + " dagen:");
+        System.out.println("Gemiddeld aantal artikelen: " + Administratie.berekenGemiddeldAantal(dagGepasseerdeArtikelen));
+        System.out.println("Gemiddelde omzet: " + Administratie.berekenGemiddeldeOmzet(dagOmzetten));
+        System.out.println("De omzet per weekdag:");
+        System.out.println("   Maandag:   €" + dagOmzet[0]);
+        System.out.println("   Disndag:   €" + dagOmzet[1]);
+        System.out.println("   Woensdag:  €" + dagOmzet[2]);
+        System.out.println("   Donderdag: €" + dagOmzet[3]);
+        System.out.println("   Vrijdag:   €" + dagOmzet[4]);
+        System.out.println("   Zaterdag:  €" + dagOmzet[5]);
+        System.out.println("   Zondag:    €" + dagOmzet[6]);
+        System.out.println();
     }
 }
