@@ -1,0 +1,28 @@
+Opgave 1b
+Zodra er een int door een int gedeelt wordt, dan wordt er ook een int geretourneerd. Kortom we krijgen geen goed resultaat van de deling.
+
+Opgave 1c
+Als er geen constructor is gemaakt, dan wordt er een standaard constructor gemaakt
+
+Opgave 1d
+Doordat we de methodes static maken is het niet mogelijk om de methodes nog een keer appart aan te roepen
+
+Opgave 1e
+Omdat we de constructor private is kunnen andere klassen geen instantie meer maken van de klasse Administratie.
+De methodes kunnen nu rechtstreeks worden aangeroepen, zo dwingen we maar 1 instantie af van de klasse Administratie
+
+Opgave 1g
+
+Opgave 1h
+Final zorgt ervoor dat de gegeven waarde niet meer veranderd kan worden door methodes
+
+Opgave 1i
+Als we static gebruiken kunnen er meerdere instanties van een variabele zijn, de methode weet dan niet welke hij moet aanroepen
+
+Opgave 1j
+Als we final gaan vervangen door static, dan zijn we weer terug bij af.
+Nu kan days_of_the_week weer aangepast worden.
+
+Opgave 2b
+Het kan zijn dat een subklasse methodes moete gebruiken van zijn superklasse.
+Als super niet verplicht bovenaan zou staan, dan zou de superklasse niet goed worden aangeroepen.
