@@ -1,5 +1,7 @@
 package kantine;
 
+// kijk hier eens: http://docs.oracle.com/javase/tutorial/java/IandI/objectclass.html
+
 /**
  * Maak 2 personen aan, en vergelijk deze
  * @author Ronald Scholten
