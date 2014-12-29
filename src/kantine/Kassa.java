@@ -1,5 +1,4 @@
 package kantine;
- 
 
 import java.util.Iterator;
 
@@ -11,19 +10,16 @@ import java.util.Iterator;
 * @version 28-11-2014
 */
 
-public class Kassa 
-{ 
+public class Kassa { 
 	private KassaRij kassarij;
     private Dienblad dienblad;
-
 	private int aantalGepasseerdeArtikelen;
 	private double totaalInKassa;
 	
 	/**
 	 * Constructor
 	 */
-	public Kassa(KassaRij kassarij) 
-	{
+	public Kassa(KassaRij kassarij) {
 		this.kassarij = kassarij;
 		aantalGepasseerdeArtikelen = 0;
 		totaalInKassa = 0.0;
@@ -35,17 +31,28 @@ public class Kassa
 	 * door een echte betaling door de persoon. 
 	 * @param persoon die moet afrekenen
 	 */
-	public void rekenAf(Persoon persoon) 
-	{
+	public void rekenAf(Persoon persoon) {
             Artikel artikel;
+            double tebetalen = 0.0;
+            int aantalArtikelen = 0;
             dienblad = persoon.getDienblad();
             
             Iterator<Artikel> artikelen = dienblad.getArtikelen();
             
             while(artikelen.hasNext()) {
                 artikel = artikelen.next();
-                totaalInKassa += artikel.getPrijs();
-                aantalGepasseerdeArtikelen++;
+                tebetalen += artikel.getPrijs();
+                aantalArtikelen++;
+            }
+            
+            if(!persoon.getBetaalwijze().betaal(tebetalen)) {
+                totaalInKassa += tebetalen;
+                aantalGepasseerdeArtikelen += aantalArtikelen;
+            }
+            else{
+                System.out.println("U heeft onvoldoende saldo of krediet.");
+                System.out.println("Kom terug wanneer u wel genoeg geld heeft!");
+                System.out.println("Nog een fijne dag verder en tot ziens.");
             }
 	}
 	
@@ -56,8 +63,7 @@ public class Kassa
 	 * is aangeroepen.
 	 * @return aantal artikelen
 	 */
-	public int aantalArtikelen() 
-	{
+	public int aantalArtikelen() {
             return aantalGepasseerdeArtikelen;
 	}
 	
@@ -68,8 +74,7 @@ public class Kassa
 	 * is aangeroepen.
 	 * @return hoeveelheid geld in de kassa
 	 */
-	public double hoeveelheidGeldInKassa() 
-	{
+	public double hoeveelheidGeldInKassa() {
 		return totaalInKassa;
 	}
 	
@@ -77,10 +82,8 @@ public class Kassa
 	 * reset de waarden van het aantal gepasseerde artikelen en 
 	 * de totale hoeveelheid geld in de kassa.
 	 */
-	public void resetKassa() 
-	{
+	public void resetKassa() {
 		aantalGepasseerdeArtikelen = 0;
 		totaalInKassa = 0;
 	}
 }
-

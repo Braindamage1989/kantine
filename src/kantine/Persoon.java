@@ -20,6 +20,7 @@ public class Persoon
         private int geboortedag;
         private char geslacht;
         private Dienblad dienblad;
+        private Betaalwijze betaalwijze;
     
     /**
     * Een constructor met als parameters persoongegevens
@@ -156,6 +157,15 @@ public class Persoon
     }
     
     /**
+     * Set de betaalwijze
+     * @param betaalwijze
+     */
+    public void setBetaalwijze(Betaalwijze betaalwijze)
+    {
+        this.betaalwijze = betaalwijze;
+    }
+    
+    /**
     * Getter voor bsn
     * @return bsn
     */
@@ -217,6 +227,15 @@ public class Persoon
         return stringgeslacht;
     }
 
+    /**
+     * Getter voor betaalwijze
+     * @return betaalwijze
+     */
+    public Betaalwijze getBetaalwijze()
+    {
+        return betaalwijze;
+    }
+    
     /**
      * Getter voor dienblad
      * @return Dienblad
