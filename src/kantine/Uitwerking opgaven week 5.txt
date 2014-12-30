@@ -1,0 +1,29 @@
+Opgave 1c
+Op referentie controleren is niet hetzelfde als de inhoud controleren
+
+Opgave 1d
+equals, met equals vergelijk je op de inhoud van een string.
+Als je == zou gebruiken dan kijk je of het geheugenadres (referentie) overeenkomt
+
+Opgave 5a
+Nee dit kan niet, de compiler geeft een foutmelding.
+Dit komt omdat interfaces zelf geen functionaliteit bieden, ze dienen enkel als 'specificatie' voor de subklasses die hieruit voortkomen.
+
+Opgave 5b
+Nee dit kan niet, de compiler geeft een foutmelding.
+ 
+
+Opgave 5c
+Nee, een klasse kan maar 1 andere klasse overerven, dit is een beperking aan Java
+
+Opgave 5d
+Ja, een klasse kan meerdere interfaces implementeren, dit kan gedaan worden door interfaces met een komma te scheiden
+
+Opgave 5e
+Ja, hierbij is het belangrijk dat het overerven voor het implementeren gebeurd
+
+Opgave 5f
+Ja, dit komt omdat een methode in een interface geen body mag bevatten. Hierdoor bieden ze geen functionaliteit.
+
+Opgave 5g
+Ja, want alleen een abstracte klasse kan abstracte methodes bevatten. Een abstracte methode kan niks doen, dit gebeurd in een subklasse pas (i.a.w: ook geen functionaliteit)

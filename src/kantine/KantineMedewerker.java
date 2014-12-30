@@ -9,7 +9,7 @@ package kantine;
  *
  * @author R
  */
-public class KantineMedewerker extends Persoon
+public class KantineMedewerker extends Persoon implements KortingskaartHouder
 {
     private String medewerkernummer;
     private boolean magAchterKassa;
@@ -20,6 +20,21 @@ public class KantineMedewerker extends Persoon
         super(bsn, voornaam, achternaam, geboortejaar, geboortemaand, geboortedag, geslacht);
         this.medewerkernummer = medewerkernummer;
         this.magAchterKassa = magAchterKassa;
+    }
+    
+    public double geefKortingsPercentage()
+    {
+        return 0.35;
+    }
+
+    public boolean heeftMaximum()
+    {
+        return false;
+    }
+
+    public double geefMaximum()
+    {
+        return 0.0;
     }
     
     public String getMedewerkernummer()
@@ -42,9 +57,14 @@ public class KantineMedewerker extends Persoon
         this.medewerkernummer = medewerkernummer;
     }
     
-    public void drukAf()
+    public String toString()
     {
-        System.out.println("Medewerkernummer: " + medewerkernummer);
-        System.out.println("Mag de persoon achter een kasse? " + magAchterKassa);
+        return "Medewerkernummer: " + medewerkernummer + "\n" +
+               "Mag achter de kassa? " + magAchterKassa;
+    }
+    
+    public void drukAf(){
+        super.toString();
+        toString();
     }
 }

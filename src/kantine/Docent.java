@@ -9,7 +9,7 @@ package kantine;
  *
  * @author R
  */
-public class Docent extends Persoon
+public class Docent extends Persoon implements KortingskaartHouder
 {
     private String afkorting;
     private String afdeling;
@@ -21,6 +21,22 @@ public class Docent extends Persoon
         this.afkorting = afkorting;
         this.afdeling = afdeling;
     }
+    
+    public double geefKortingsPercentage()
+    {
+        return 0.25;
+    }
+
+    public boolean heeftMaximum()
+    {
+        return true;
+    }
+
+    public double geefMaximum()
+    {
+        return 1.0;
+    }
+
     
     public String getAfdeling()
     {
@@ -42,9 +58,14 @@ public class Docent extends Persoon
         this.afkorting = afkorting;
     }
     
-    public void drukAf()
+    public String toString()
     {
-        System.out.println("Afdeling: " + afdeling);
-        System.out.println("Afkorting: " + afkorting);
+        return "Afdeling: " + afdeling + "\n" +
+               "Afkorting: " + afkorting;
+    }
+    
+    public void drukAf(){
+        super.toString();
+        toString();
     }
 }

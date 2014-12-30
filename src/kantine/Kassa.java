@@ -35,13 +35,47 @@ public class Kassa {
             Artikel artikel;
             double tebetalen = 0.0;
             int aantalArtikelen = 0;
+            double maximaleKorting = 0.0;
+            double kortingsPercentage = 0.0;
+            boolean heeftMaximum = false;
+
+            
             dienblad = persoon.getDienblad();
+            
+            if(persoon instanceof KortingskaartHouder) {
+                KortingskaartHouder kortingskaartHouder = (KortingskaartHouder) persoon;
+                kortingsPercentage = kortingskaartHouder.geefKortingsPercentage();
+                heeftMaximum = kortingskaartHouder.heeftMaximum();
+                
+                if(heeftMaximum) {
+                    maximaleKorting = kortingskaartHouder.geefMaximum();
+                }
+            }
             
             Iterator<Artikel> artikelen = dienblad.getArtikelen();
             
             while(artikelen.hasNext()) {
+                double korting;
+                double artikelPrijs;
+                
                 artikel = artikelen.next();
-                tebetalen += artikel.getPrijs();
+                artikelPrijs = artikel.getPrijs();
+                korting = artikel.getPrijs() * kortingsPercentage;
+                if(heeftMaximum) {
+                    if(korting <= maximaleKorting) {
+                        maximaleKorting -= korting;
+                        artikelPrijs -= korting;
+                    }
+                    else {
+                        artikelPrijs -= maximaleKorting;
+                        maximaleKorting -= maximaleKorting;
+                    }
+                }
+                else {
+                    artikelPrijs -= korting;
+                }
+                
+                tebetalen += artikelPrijs;
                 aantalArtikelen++;
             }
             

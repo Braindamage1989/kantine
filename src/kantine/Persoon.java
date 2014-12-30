@@ -250,13 +250,18 @@ public class Persoon
     */
     public void drukAf()
     {
-        System.out.println("BSN: " + bsn);
-        System.out.println("Voornaam: " + voornaam);
-        System.out.println("Achternaam: " + achternaam);
-        System.out.println("Geboortedatum: " + getGeboorteDatum());
-        System.out.println("Geslacht: " + getGeslacht());
+        toString();
     }
     
+    public String toString()
+    {
+        return  "BSN: " + bsn + "\n" +
+                "Voornaam: " + voornaam + "\n" +
+                "Achternaam: " + achternaam + "\n" +
+                "Geboortedatum: " + getGeboorteDatum() + "\n" +
+                "Geslacht: " + getGeslacht();
+    }
+
     /**
     * Methode om dienblad te koppelen aan een persoon
     * @param dienblad
@@ -266,5 +271,19 @@ public class Persoon
         this.dienblad = dienblad; 
     }
     
+    public boolean equals(Object object)
+    {
+        if(this == object) {
+            return true;
+        }
+
+        if(!(object instanceof Persoon)) {
+            return false;
+        }
+
+        Persoon other = (Persoon) object;
+        return bsn == other.bsn;
+    }
+
     
 }

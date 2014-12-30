@@ -42,9 +42,14 @@ public class Student extends Persoon
         this.studierichting = studierichting;
     }
     
-    public void drukAf()
+    public String toString()
     {
-        System.out.println("Studentnummer: " + studentnummer);
-        System.out.println("Studentnummer: " + studierichting);
+        return "Studentnummer: " + studentnummer + "\n" +
+               "Studierichting: " + studierichting;
+    }
+    
+    public void drukAf(){
+        super.toString();
+        toString();
     }
 }
