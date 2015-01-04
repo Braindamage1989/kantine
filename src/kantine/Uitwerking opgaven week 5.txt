@@ -5,6 +5,9 @@ Opgave 1d
 equals, met equals vergelijk je op de inhoud van een string.
 Als je == zou gebruiken dan kijk je of het geheugenadres (referentie) overeenkomt
 
+Opgave 2b Zie Sequence-Diagram opg 5.2b.jpg
+Opgave 2c Omdat de subklassen dan vrij gebruik kunnen maken van deze variabele zonder dat elke klasse dat kan.
+
 Opgave 5a
 Nee dit kan niet, de compiler geeft een foutmelding.
 Dit komt omdat interfaces zelf geen functionaliteit bieden, ze dienen enkel als 'specificatie' voor de subklasses die hieruit voortkomen.
@@ -12,7 +15,6 @@ Dit komt omdat interfaces zelf geen functionaliteit bieden, ze dienen enkel als 
 Opgave 5b
 Nee dit kan niet, de compiler geeft een foutmelding.
  
-
 Opgave 5c
 Nee, een klasse kan maar 1 andere klasse overerven, dit is een beperking aan Java
 
@@ -27,3 +29,24 @@ Ja, dit komt omdat een methode in een interface geen body mag bevatten. Hierdoor
 
 Opgave 5g
 Ja, want alleen een abstracte klasse kan abstracte methodes bevatten. Een abstracte methode kan niks doen, dit gebeurd in een subklasse pas (i.a.w: ook geen functionaliteit)
+
+Opgave 6
+    a. Dit kan, een abstracte klasse maak je om te voorkomen dat er instanties van gemaakt worden
+       en abstracte methoden zijn om te zorgen dat subklassen een eigen implementatie van die methode moeten geven.
+       Omdat je soms geen instanties wilt hebben van een klasse maar wel alle methoden implementeren kan dit dus.
+    b. Een subklasse moet inderdaad alle abstracte methoden van zijn abstracte superklasse implementeren.
+       Omdat als de abstracte methode word aangeroepen maar in de variabele zit een object van de een subklasse die 
+       die niet heeft geïmplementeerd dan zou er een error plaats vinden, omdat er dan geen implementatie is van 
+       de methode.
+    c. Dit kan op twee manieren voor zo ver ik kan vinden. De eerste is om de klasse abstract te maken en een 
+       subklasse de methode te laten implementeren. De tweede is door een exception te throwen. De eerste is 
+       de verstandige en logische manier om dit te doen, omdat een abstracte klasse niet alle geërfde methoden 
+       hoeft te implementeren. De tweede manier is onverstandig om te gebruiken, maar voorkomt wel een (compiler)fout.
+    d. We gebruiken het keyword abstract om er voor te zorgen dat er geen implementatie is en dus in het geval 
+       van een klasse geen instanties van worden gemaakt. Als je dus een abstacte instantie variable zou maken, 
+       betekent dat dat je een variabele hebt die voor elke instantie anders is, maar waar geen instanties van zijn. 
+       Dit kan uiteraard niet, dus het kan niet omdat een instantie variabele bestaat.
+    e. Een final method is een method die niet overschreven kan worden en dat is wat final doet, iets definitief 
+       en onveranderlijk maken. Een abstract method moet overschreven worden, want abstract maakt dat het niet 
+       geïmplementeer is en dus later moet gebeuren.
+       De twee zijn in feite elkaars tegenovergestelden en kunnen daarom ook niet gecombineerd worden.
