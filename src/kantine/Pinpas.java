@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kantine;
+ package kantine;
 
 /**
  * Write a description of class Pinpas here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author David Bor & Ronald Scholten 
+ * @version 09-01-2015
  */
 public class Pinpas extends Betaalwijze
 {
@@ -26,19 +26,25 @@ public class Pinpas extends Betaalwijze
 
     /**
      * Methode om krefietlimiet te zetten
-     * @param kredietlimiet
+     * @param kredietlimiet een negatief getal die het minimum weergeeft van wat een persoon mag hebben
      */
     public void setKredietLimiet(double kredietlimiet)
     {
-        this.kredietlimiet = kredietlimiet;
+        if(kredietlimiet <= 0) {
+            this.kredietlimiet = kredietlimiet;
+        }
+        else if(kredietlimiet > 0) {
+            System.out.println("Please, enter only negative values.");
+        }
     }
     
     /**
      * Methode om betaling af te handelen
+     * @param tebetalen
      */
     public boolean betaal(double tebetalen)
     {
-        if((saldo - tebetalen) <= kredietlimiet) {
+        if((saldo - kredietlimiet) >= tebetalen) {
             saldo -= tebetalen;
             return true;
         }

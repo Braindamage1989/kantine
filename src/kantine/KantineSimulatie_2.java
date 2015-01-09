@@ -1,14 +1,14 @@
- package kantine;
+package kantine;  
 
 import java.util.*;
 
 /**
-* Een klasse die aan de hand van andere klassen
-* simuleert hoe de verkoop gaat in een kantine.
-* 
-* @author Ronald Scholten and David Bor
-* @version 05-12-2014
-*/
+ * Een klasse die aan de hand van andere klassen
+ * simuleert hoe de verkoop gaat in een kantine.
+ * 
+ * @author David Bor & Ronald Scholten 
+ * @version 09-01-2015
+ */
 public class KantineSimulatie 
 {
     // kantine
@@ -161,6 +161,7 @@ public class KantineSimulatie
             for(int j = 0;j < aantalpersonen;j++) {
                 Persoon persoon;
                 int type = getRandomValue(0, 99);
+                
                 if(type < 89) {
                     persoon = new Student(13542856, "Paula", "Berksen", 1978, 4, 12, 'v', "321514", "ICT");
                 }
@@ -170,6 +171,25 @@ public class KantineSimulatie
                 else {
                     persoon = new KantineMedewerker(52145215, "Rosa", "Noda", 1995, 11, 2, 'v', "1254", false);
                 }
+                
+                int betaaltype = getRandomValue(0, 1);
+                Betaalwijze betaalwijze;
+                if(betaaltype == 0) {
+                    int intSaldo = getRandomValue(500, 2500);
+                    double saldo = intSaldo / 100.0;
+                    betaalwijze = new Contant(saldo);
+                }
+                else if(betaaltype == 1) {
+                    int intSaldo = getRandomValue(500, 12873);
+                    double saldo = intSaldo / 100.0;
+                    int intKredLimiet = getRandomValue(-10000, 0);
+                    double kredLimiet = intKredLimiet / 100.0;
+                    betaalwijze = new Pinpas(saldo, kredLimiet);
+                }
+                else {
+                    betaalwijze = null;
+                }
+                persoon.setBetaalwijze(betaalwijze);
                 
                 Dienblad dienblad = new Dienblad();
                 persoon.pakDienblad(dienblad);

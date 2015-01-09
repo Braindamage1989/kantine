@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kantine;
+ package kantine;
 
 /**
  * Abstract class Betaalwijze - write a description of the class here
  * 
- * @author (your name here)
- * @version (version number or date here)
+ * @author David Bor & Ronald Scholten 
+ * @version 09-01-2015
  */
 public abstract class Betaalwijze
 {

@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kantine;
+ package kantine;
 
 /**
  * Write a description of class Contant here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author David Bor & Ronald Scholten 
+ * @version 09-01-2015
  */
 public class Contant extends Betaalwijze
 {
@@ -23,6 +23,7 @@ public class Contant extends Betaalwijze
     
     /**
      * Methode om betaling af te handelen
+     * @param tebetalen
      */
     public boolean betaal(double tebetalen)
     {

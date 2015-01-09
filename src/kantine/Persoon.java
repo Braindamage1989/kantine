@@ -1,14 +1,14 @@
-package kantine; 
+package kantine;  
 
 import java.util.ArrayList;
 
 /**
-* Een klasse die informatie over personen bijhoud.
-* Dit word een onderdeel van een grotere applicatie.
-* 
-* @author Ronald Scholten
-* @version 21-11-2014
-*/
+ * Een klasse die informatie over pe
+ * Dit word een onderdeel van een grotere applicatie.
+ * 
+ * @author David Bor & Ronald Scholten 
+ * @version 09-01-2015
+ */
 
 public class Persoon
 { 
@@ -157,7 +157,7 @@ public class Persoon
     }
     
     /**
-     * Set de betaalwijze
+     * Setter voor betaalwijze
      * @param betaalwijze
      */
     public void setBetaalwijze(Betaalwijze betaalwijze)
