@@ -31,7 +31,8 @@ public class Kassa {
      * door een echte betaling door de persoon. 
      * @param persoon die moet afrekenen
      */
-    public void rekenAf(Persoon persoon) {
+    public void rekenAf(Persoon persoon) throws TeWeinigGeldException
+    {
             Artikel artikel;
             double tebetalen = 0.0;
             int aantalArtikelen = 0;
@@ -79,15 +80,9 @@ public class Kassa {
                 aantalArtikelen++;
             }
             
-            if(persoon.getBetaalwijze().betaal(tebetalen)) {
-                totaalInKassa += tebetalen;
-                aantalGepasseerdeArtikelen += aantalArtikelen;
-            }
-            else{
-                System.out.println("U heeft onvoldoende saldo of krediet.");
-                System.out.println("Kom terug wanneer u wel genoeg geld heeft!");
-                System.out.println("Nog een fijne dag verder en tot ziens.\n");
-            }
+            persoon.getBetaalwijze().betaal(tebetalen); 
+            totaalInKassa += tebetalen;
+            aantalGepasseerdeArtikelen += aantalArtikelen;
     }
     
     /**

@@ -14,6 +14,7 @@
 public class Pinpas extends Betaalwijze
 {
     private double kredietlimiet;
+    private Persoon persoon;
 
     /**
      * Constructor
@@ -42,14 +43,13 @@ public class Pinpas extends Betaalwijze
      * Methode om betaling af te handelen
      * @param tebetalen
      */
-    public boolean betaal(double tebetalen)
+    public void betaal(double tebetalen) throws TeWeinigGeldException
     {
         if((saldo - kredietlimiet) >= tebetalen) {
             saldo -= tebetalen;
-            return true;
         }
         else {
-            return false;
+            throw new TeWeinigGeldException();
         }
     }
 }

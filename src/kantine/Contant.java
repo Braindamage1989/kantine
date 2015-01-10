@@ -13,6 +13,7 @@
  */
 public class Contant extends Betaalwijze
 {
+    private Persoon persoon;
     /**
      * Constructor
      */
@@ -25,14 +26,13 @@ public class Contant extends Betaalwijze
      * Methode om betaling af te handelen
      * @param tebetalen
      */
-    public boolean betaal(double tebetalen)
+    public void betaal(double tebetalen) throws TeWeinigGeldException
     {
-        if(tebetalen <= saldo) {
-            saldo -= tebetalen;
-            return true;
-        }
-        else {
-            return false;
-        }
+            if(saldo >= tebetalen) {
+                saldo -= tebetalen;
+            }
+            else {
+                throw new TeWeinigGeldException();
+            }
     }
 }
