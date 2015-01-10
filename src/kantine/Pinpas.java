@@ -49,7 +49,7 @@ public class Pinpas extends Betaalwijze
             saldo -= tebetalen;
         }
         else {
-            throw new TeWeinigGeldException();
+            throw new TeWeinigGeldException("Saldo ontoereikend");
         }
     }
 }
