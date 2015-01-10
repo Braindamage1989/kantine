@@ -13,13 +13,16 @@ public class TeWeinigGeldException extends Exception
 {
     TeWeinigGeldException()
     {
+        
     }
     
     TeWeinigGeldException(Exception e)
-    {  
+    {
+        
     }
     
     TeWeinigGeldException(String message)
     {
+        System.out.println(message);
     }
 }
