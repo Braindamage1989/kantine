@@ -211,8 +211,7 @@ public class KantineSimulatie
                     kantine.verwerkRijVoorKassa();
                 }
                 catch (TeWeinigGeldException e){
-                    System.out.println(e.getS());
-                    System.out.println(persoon.getVoornaam() + " " + persoon.getAchternaam() + " heeft niet voldoende saldo");
+                    System.out.println(e.getMessage());
                 }
             }
             
@@ -235,13 +234,13 @@ public class KantineSimulatie
         System.out.println("Gemiddeld aantal artikelen: " + Administratie.berekenGemiddeldAantal(dagGepasseerdeArtikelen));
         System.out.println("Gemiddelde omzet: " + Administratie.berekenGemiddeldeOmzet(dagOmzetten));
         System.out.println("De omzet per weekdag:");
-        System.out.println("   Maandag:   €" + dagOmzet[0]);
-        System.out.println("   Disndag:   €" + dagOmzet[1]);
-        System.out.println("   Woensdag:  €" + dagOmzet[2]);
-        System.out.println("   Donderdag: €" + dagOmzet[3]);
-        System.out.println("   Vrijdag:   €" + dagOmzet[4]);
-        System.out.println("   Zaterdag:  €" + dagOmzet[5]);
-        System.out.println("   Zondag:    €" + dagOmzet[6]);
+        System.out.println("   Maandag:   ï¿½" + dagOmzet[0]);
+        System.out.println("   Disndag:   ï¿½" + dagOmzet[1]);
+        System.out.println("   Woensdag:  ï¿½" + dagOmzet[2]);
+        System.out.println("   Donderdag: ï¿½" + dagOmzet[3]);
+        System.out.println("   Vrijdag:   ï¿½" + dagOmzet[4]);
+        System.out.println("   Zaterdag:  ï¿½" + dagOmzet[5]);
+        System.out.println("   Zondag:    ï¿½" + dagOmzet[6]);
         System.out.println();
     }
 }

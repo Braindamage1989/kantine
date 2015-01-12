@@ -82,9 +82,15 @@ public class Kassa
                 aantalArtikelen++;
             }
             
-            persoon.getBetaalwijze().betaal(tebetalen); 
-            totaalInKassa += tebetalen;
-            aantalGepasseerdeArtikelen += aantalArtikelen;
+            try {
+                persoon.getBetaalwijze().betaal(tebetalen);
+                totaalInKassa += tebetalen;
+                aantalGepasseerdeArtikelen += aantalArtikelen;
+            }
+            catch(Exception e){
+                throw new TeWeinigGeldException(e.getMessage() + "/n" +persoon.getVoornaam() + " " + persoon.getAchternaam() + " heeft niet voldoende saldo");
+            }
+            
     }
     
     /**

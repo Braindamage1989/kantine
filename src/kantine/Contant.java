@@ -13,7 +13,6 @@
  */
 public class Contant extends Betaalwijze
 {
-    private Persoon persoon;
     /**
      * Constructor
      */
@@ -28,11 +27,12 @@ public class Contant extends Betaalwijze
      */
     public void betaal(double tebetalen) throws TeWeinigGeldException
     {
-            if(saldo >= tebetalen) {
-                saldo -= tebetalen;
-            }
-            else {
-                throw new TeWeinigGeldException("Saldo ontoereikend");
-            }
+        double restSaldo = saldo - tebetalen;
+        if(restSaldo >= 0) {
+            saldo -= tebetalen;
+        }
+        else {
+            throw new TeWeinigGeldException("Saldo ontoereikend./nHet tekort is: " + restSaldo);
+        }
     }
 }

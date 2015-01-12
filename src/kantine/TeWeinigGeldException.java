@@ -12,25 +12,18 @@ package kantine;
  */
 public class TeWeinigGeldException extends Exception
 {
-    String s;
-    
     TeWeinigGeldException()
     {
-        
+        super("Te weinig geld!");
     }
     
     TeWeinigGeldException(Exception e)
     {
-        
+        super(e);
     }
     
     TeWeinigGeldException(String message)
     {
-        s = message;
-    }
-    
-    public String getS()
-    {
-        return s;
+        super(message);
     }
 }
