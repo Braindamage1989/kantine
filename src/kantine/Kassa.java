@@ -10,7 +10,8 @@ import java.util.Iterator;
  * @version 09-01-2015
  */
 
-public class Kassa { 
+public class Kassa 
+{ 
     private KassaRij kassarij;
     private Dienblad dienblad;
     private int aantalGepasseerdeArtikelen;
@@ -19,7 +20,8 @@ public class Kassa {
     /**
      * Constructor
      */
-    public Kassa(KassaRij kassarij) {
+    public Kassa(KassaRij kassarij) 
+    {
         this.kassarij = kassarij;
         aantalGepasseerdeArtikelen = 0;
         totaalInKassa = 0.0;
@@ -92,7 +94,8 @@ public class Kassa {
      * is aangeroepen.
      * @return aantal artikelen
      */
-    public int aantalArtikelen() {
+    public int aantalArtikelen() 
+    {
             return aantalGepasseerdeArtikelen;
     }
     
@@ -103,7 +106,8 @@ public class Kassa {
      * is aangeroepen.
      * @return hoeveelheid geld in de kassa
      */
-    public double hoeveelheidGeldInKassa() {
+    public double hoeveelheidGeldInKassa() 
+    {
         return totaalInKassa;
     }
     
@@ -111,7 +115,8 @@ public class Kassa {
      * reset de waarden van het aantal gepasseerde artikelen en 
      * de totale hoeveelheid geld in de kassa.
      */
-    public void resetKassa() {
+    public void resetKassa()
+    {
         aantalGepasseerdeArtikelen = 0;
         totaalInKassa = 0;
     }
