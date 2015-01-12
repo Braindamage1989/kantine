@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package kantine;
 
 /**
@@ -11,6 +12,8 @@ package kantine;
  */
 public class TeWeinigGeldException extends Exception
 {
+    String s;
+    
     TeWeinigGeldException()
     {
         
@@ -23,6 +26,11 @@ public class TeWeinigGeldException extends Exception
     
     TeWeinigGeldException(String message)
     {
-        System.out.println(message);
+        s = message;
+    }
+    
+    public String getS()
+    {
+        return s;
     }
 }
