@@ -60,12 +60,8 @@ public class Docent extends Persoon implements KortingskaartHouder
     
     public String toString()
     {
-        return "Afdeling: " + afdeling + "\n" +
+        return super.toString() +
+               "Afdeling: " + afdeling + "\n" +
                "Afkorting: " + afkorting;
-    }
-    
-    public void drukAf(){
-        super.toString();
-        toString();
     }
 }

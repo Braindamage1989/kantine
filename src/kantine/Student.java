@@ -44,12 +44,8 @@ public class Student extends Persoon
     
     public String toString()
     {
-        return "Studentnummer: " + studentnummer + "\n" +
+        return super.toString() +
+               "Studentnummer: " + studentnummer + "\n" +
                "Studierichting: " + studierichting;
-    }
-    
-    public void drukAf(){
-        super.toString();
-        toString();
     }
 }
