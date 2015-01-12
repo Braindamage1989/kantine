@@ -22,6 +22,16 @@ public class Docent extends Persoon implements KortingskaartHouder
         this.afdeling = afdeling;
     }
     
+    public void setAfdeling(String afdeling)
+    {
+        this.afdeling = afdeling;
+    }
+    
+    public void setAfkorting(String afkorting)
+    {
+        this.afkorting = afkorting;
+    }
+    
     public double geefKortingsPercentage()
     {
         return 0.25;
@@ -46,16 +56,6 @@ public class Docent extends Persoon implements KortingskaartHouder
     public String getAfkorting()
     {
         return afkorting;
-    }
-    
-    public void setAfdeling(String afdeling)
-    {
-        this.afdeling = afdeling;
-    }
-    
-    public void setAfkorting(String afkorting)
-    {
-        this.afkorting = afkorting;
     }
     
     public String toString()

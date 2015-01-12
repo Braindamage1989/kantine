@@ -22,16 +22,6 @@ public class Student extends Persoon
         this.studierichting = studierichting;
     }
     
-    public String getStudentnummer()
-    {
-        return studentnummer;
-    }
-    
-    public String getStudierichting()
-    {
-        return studierichting;
-    }
-    
     public void setStudentnummer(String studentnummer)
     {
         this.studentnummer = studentnummer;
@@ -40,6 +30,16 @@ public class Student extends Persoon
     public void setStudierichting(String studierichting)
     {
         this.studierichting = studierichting;
+    }
+    
+    public String getStudentnummer()
+    {
+        return studentnummer;
+    }
+    
+    public String getStudierichting()
+    {
+        return studierichting;
     }
     
     public String toString()

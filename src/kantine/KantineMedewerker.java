@@ -22,6 +22,16 @@ public class KantineMedewerker extends Persoon implements KortingskaartHouder
         this.magAchterKassa = magAchterKassa;
     }
     
+    public void setMagAchterKassa(boolean magAchterKassa)
+    {
+        this.magAchterKassa = magAchterKassa;
+    }
+    
+    public void setMagAchterKassa(String medewerkernummer)
+    {
+        this.medewerkernummer = medewerkernummer;
+    }
+    
     public double geefKortingsPercentage()
     {
         return 0.35;
@@ -45,16 +55,6 @@ public class KantineMedewerker extends Persoon implements KortingskaartHouder
     public boolean getMagAchterKassa()
     {
         return magAchterKassa;
-    }
-    
-    public void setMagAchterKassa(boolean magAchterKassa)
-    {
-        this.magAchterKassa = magAchterKassa;
-    }
-    
-    public void setMagAchterKassa(String medewerkernummer)
-    {
-        this.medewerkernummer = medewerkernummer;
     }
     
     public String toString()
