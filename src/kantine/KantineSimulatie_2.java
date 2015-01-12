@@ -1,13 +1,14 @@
-package kantine;  
+package kantine;
 
 import java.util.*;
+
 
 /**
  * Een klasse die aan de hand van andere klassen
  * simuleert hoe de verkoop gaat in een kantine.
  * 
  * @author David Bor & Ronald Scholten 
- * @version 09-01-2015
+ * @version 11-01-2015
  */
 public class KantineSimulatie 
 {
@@ -20,19 +21,17 @@ public class KantineSimulatie
     // random generator
     private Random random;
     
+    // Scanner
+    Scanner reader;
+    
     // aantal artikelen
-    private static final int AANTAL_ARTIKELEN = 4;
+    private int aantalArtikelen;
     
-    // artikelen
-    private static final String[] artikelnamen =
-        new String[] {"Koffie","Broodje hamburger", "Broodje kaas", "Melk"};
+    // hoeveelheden van artikelen
+    private int[] hoeveelheden; 
     
-    //hoeveelheden van artikelen
-    private int[] hoeveelheden;
-    
-    // prijzen
-    private static double[] artikelprijzen =
-        new double[]{1.50, 2.10, 1.65, 1.65};   
+    // artikelnamen
+    ArrayList<String> artikelnamen;
     
     // minimum en maximum aantal artikelen per soort
     private static final int MIN_ARTIKELEN_PER_SOORT = 10000;
@@ -53,10 +52,8 @@ public class KantineSimulatie
     {
         kantine = new Kantine();
         random = new Random();
-        hoeveelheden = getRandomArray(
-            AANTAL_ARTIKELEN,MIN_ARTIKELEN_PER_SOORT, MAX_ARTIKELEN_PER_SOORT);
-        kantineaanbod = new KantineAanbod(artikelnamen, artikelprijzen, 
-            hoeveelheden); 
+        reader = new Scanner(System.in);
+        kantineaanbod = composeKantineAanbod();
         kantine.setKantineAanbod(kantineaanbod);
     }
     
@@ -99,51 +96,55 @@ public class KantineSimulatie
     {
         String[] artikelen = new String[indexen.length];
         for(int i = 0;i < indexen.length;i++) { 
-            artikelen[i] = artikelnamen[indexen[i]];
+            artikelen[i] = artikelnamen.get(indexen[i]);
         }
         return artikelen;
     }
     
-    /**
-     * Methode om te checken of een product nog voldoende op
-     * voorraad is
-     * @param artikelvoorraad
-     * @param hoeveelste artikel het is
-     * @return true of false
-     */
-    private boolean checkVoorraad(ArrayList<Artikel> artikel, int positie) 
+    private KantineAanbod composeKantineAanbod()
     {
-        if (artikel.size() < (hoeveelheden[positie] / 20)) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-    
-    /**
-     * Methode om de voorraad van de kantine bij te vullen
-     * @param artikelvoorraad
-     * @param hoeveelste artikel het is
-     */
-    private void vulVoorraadBij(ArrayList<Artikel> artikel, int positie) 
-    {
-        for (int i = artikel.size(); i <= hoeveelheden[positie]; i++) {
-            artikel.add(new Artikel(artikelnamen[positie], artikelprijzen[positie]));
-        }
-    }
-    
-    /**
-     * Methode om de voorraad van de kantine bij te houden
-     */
-    private void voorraadBijhouden() 
-    {
-        for (int i = 0; i < AANTAL_ARTIKELEN; i++) {
-            ArrayList<Artikel> artikel = kantineaanbod.getArrayList(artikelnamen[i]);
-            if (checkVoorraad(artikel, i)) {
-                vulVoorraadBij(artikel, i);
+        artikelnamen = new ArrayList<>();
+        ArrayList<Double> artikelprijzen = new ArrayList<>();
+        String inputLine;
+        
+        boolean finished = false;
+        System.out.println("Voeg de artikelen toe die in het assortiment van uw kantine wilt hebben.");
+        System.out.println("Doe dit door (artikelnaam)*spatie*(artikelprijs (met ',decimalen'!)) in te voeren.");
+        System.out.println("Als u klaar bent typed u 'klaar' om verder te gaan.");
+        while(!finished) {
+            String artikelnaam = "";
+            
+            System.out.println("Voer een artikel in:");
+            System.out.print("> ");
+            inputLine = reader.nextLine();
+            
+            Scanner tokenizer = new Scanner(inputLine);
+            while(tokenizer.hasNext() && (!tokenizer.hasNextDouble() || tokenizer.hasNextInt())) {
+                artikelnaam += tokenizer.next() + " ";
+            }
+            if(artikelnaam.equals("klaar ")) {
+                finished = true;
+            }
+            else if(tokenizer.hasNextDouble()) {
+                artikelnamen.add(artikelnaam);
+                artikelprijzen.add(tokenizer.nextDouble());
+            }
+            else {
+                System.out.println("Vul a.u.b. volgens het format (artikelnaam)*spatie*(artikelprijs met decimalen!) in.");
             }
         }
+        
+        aantalArtikelen = artikelnamen.size();
+        String[] artikelNamen = new String[aantalArtikelen];
+        double[] artikelPrijzen = new double[aantalArtikelen];
+        
+        for(int i = 0; i < aantalArtikelen; i++) {
+            artikelNamen[i] = artikelnamen.get(i);
+            artikelPrijzen[i] = artikelprijzen.get(i);
+        }
+        
+        hoeveelheden = getRandomArray(aantalArtikelen, MIN_ARTIKELEN_PER_SOORT, MAX_ARTIKELEN_PER_SOORT);
+        return new KantineAanbod(artikelNamen, artikelPrijzen, hoeveelheden);
     }
     
     /**
@@ -180,7 +181,7 @@ public class KantineSimulatie
                     betaalwijze = new Contant(saldo);
                 }
                 else if(betaaltype == 1) {
-                    int intSaldo = getRandomValue(500, 12873);
+                    int intSaldo = getRandomValue(500, 21054);
                     double saldo = intSaldo / 100.0;
                     int intKredLimiet = getRandomValue(-10000, 0);
                     double kredLimiet = intKredLimiet / 100.0;
@@ -195,21 +196,22 @@ public class KantineSimulatie
                 persoon.pakDienblad(dienblad);
         
                 int aantalartikelen = getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON);
-                int[] tepakken = getRandomArray(aantalartikelen, 0, AANTAL_ARTIKELEN-1);
+                int[] tepakken = getRandomArray(aantalartikelen, 0, aantalArtikelen-1);
                 String[] artikelen = geefArtikelNamen(tepakken);
                 
                 persoon.drukAf();
                 kantine.loopPakSluitAan(persoon, artikelen);
-            
-            
+                kantineaanbod.voorraadBijhouden(aantalArtikelen);
+                
                 try {
                     kantine.verwerkRijVoorKassa();
                 }
                 catch (TeWeinigGeldException e){
+                    System.out.println(e.getS());
                     System.out.println(persoon.getVoornaam() + " " + persoon.getAchternaam() + " heeft niet voldoende saldo");
                 }
-              
             }
+            
             dagGepasseerdeArtikelen[i] = kantine.getKassa().aantalArtikelen();
             dagOmzetten[i] = kantine.getKassa().hoeveelheidGeldInKassa();
             
@@ -221,7 +223,6 @@ public class KantineSimulatie
             
             kantine.getKassa().resetKassa();
             
-            voorraadBijhouden();
         }
         
         double[] dagOmzet = Administratie.berekenDagOmzet(dagOmzetten);
@@ -230,13 +231,13 @@ public class KantineSimulatie
         System.out.println("Gemiddeld aantal artikelen: " + Administratie.berekenGemiddeldAantal(dagGepasseerdeArtikelen));
         System.out.println("Gemiddelde omzet: " + Administratie.berekenGemiddeldeOmzet(dagOmzetten));
         System.out.println("De omzet per weekdag:");
-        System.out.println("   Maandag:   ï¿½" + dagOmzet[0]);
-        System.out.println("   Disndag:   ï¿½" + dagOmzet[1]);
-        System.out.println("   Woensdag:  ï¿½" + dagOmzet[2]);
-        System.out.println("   Donderdag: ï¿½" + dagOmzet[3]);
-        System.out.println("   Vrijdag:   ï¿½" + dagOmzet[4]);
-        System.out.println("   Zaterdag:  ï¿½" + dagOmzet[5]);
-        System.out.println("   Zondag:    ï¿½" + dagOmzet[6]);
+        System.out.println("   Maandag:   €" + dagOmzet[0]);
+        System.out.println("   Disndag:   €" + dagOmzet[1]);
+        System.out.println("   Woensdag:  €" + dagOmzet[2]);
+        System.out.println("   Donderdag: €" + dagOmzet[3]);
+        System.out.println("   Vrijdag:   €" + dagOmzet[4]);
+        System.out.println("   Zaterdag:  €" + dagOmzet[5]);
+        System.out.println("   Zondag:    €" + dagOmzet[6]);
         System.out.println();
     }
 }
