@@ -59,12 +59,8 @@ public class KantineMedewerker extends Persoon implements KortingskaartHouder
     
     public String toString()
     {
-        return "Medewerkernummer: " + medewerkernummer + "\n" +
+        return super.toString() +
+               "Medewerkernummer: " + medewerkernummer + "\n" +
                "Mag achter de kassa? " + magAchterKassa;
-    }
-    
-    public void drukAf(){
-        super.toString();
-        toString();
     }
 }
