@@ -101,6 +101,10 @@ public class KantineSimulatie
         return artikelen;
     }
     
+    /**
+     * Methode om op basis van userinput een kantineaanbod samen te stellen.
+     * @return KantineAanbod
+     */
     private KantineAanbod composeKantineAanbod()
     {
         artikelnamen = new ArrayList<>();
